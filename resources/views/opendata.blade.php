@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Portal Depok</title>
+<title>Depok Open Data</title>
 <link rel="shortcut icon" href="{{URL::asset('/img/logoopendata.png')}}">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -262,7 +262,9 @@ body, html {
   </div>
 
   <div class="w3-row-padding w3-section w3-center">
-    <button class="w3-btn w3-text-white w3-round-large w3-padding-large" style="background-color:#575f8a">Selengkapnya</button>
+    <a href="/topik">
+      <button class="w3-btn w3-text-white w3-round-large w3-padding-large" style="background-color:#575f8a">Selengkapnya</button>
+    </a>
   </div>
 </div>
 

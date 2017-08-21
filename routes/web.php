@@ -17,27 +17,41 @@ Route::get('/', function () {
 Route::get('/opendata', function () {
     return view('opendata');
 });
+
+Route::get('/data', function () {
+    return view('opendata/data');
+});
+Route::get('/organisasi', function () {
+    return view('opendata/organisasi');
+});
+Route::get('/tentang', function () {
+    return view('opendata/tentang');
+});
+Route::get('/topik', function () {
+    return view('opendata/topik');
+});
+
 Route::get('/bencana', function(){
-  return view('opendata/bencana');
+  return view('topik/bencana');
 } );
 Route::get('/kependudukan', function(){
-  return view('opendata/kependudukan');
+  return view('topik/kependudukan');
 } );
 Route::get('/kesehatan', function(){
-  return view('opendata/kesehatan');
+  return view('topik/kesehatan');
 } );
 Route::get('/keuangan', function(){
-  return view('opendata/keuangan');
+  return view('topik/keuangan');
 } );
 Route::get('/pariwisata', function(){
-  return view('opendata/pariwisata');
+  return view('topik/pariwisata');
 } );
 Route::get('/pekerjaan', function(){
-  return view('opendata/pekerjaan');
+  return view('topik/pekerjaan');
 } );
 Route::get('/pendidikan', function(){
-  return view('opendata/pendidikan');
+  return view('topik/pendidikan');
 } );
 Route::get('/sosial', function(){
-  return view('opendata/sosial');
+  return view('topik/sosial');
 } );

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Pariwisata & Kebudayaan</title>
+<title>Sosial</title>
 <link rel="shortcut icon" href="../../img/logoopendata.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,10 +44,10 @@ body {font-size:16px;}
     <img src="../../img/logoopendatafull.png" alt="Norway" style="width:200px">
   </div><br>
   <div class="w3-bar-block">
-    <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data</a>
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Organisasi</a>
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Topik</a>
+    <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <a href="/data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data</a>
+    <a href="/organisasi" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Organisasi</a>
+    <a href="/topik" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Topik</a>
     <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
   </div>
 </nav>
@@ -64,7 +64,7 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
   <!-- Header -->
   <div class="w3-container paddingtop" id="showcase">
-    <h2><b>Topik - Pariwisata & Kebudayaan</b></h2>
+    <h2><b>Topik - Sosial</b></h2>
   </div>
 
   <!-- Navigasi -->

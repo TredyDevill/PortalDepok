@@ -11,6 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/opendata', function () {
+    return view('opendata');
 });
+Route::get('/bencana', function(){
+  return view('opendata/bencana');
+} );
+Route::get('/kependudukan', function(){
+  return view('opendata/kependudukan');
+} );
+Route::get('/kesehatan', function(){
+  return view('opendata/kesehatan');
+} );
+Route::get('/keuangan', function(){
+  return view('opendata/keuangan');
+} );
+Route::get('/pariwisata', function(){
+  return view('opendata/pariwisata');
+} );
+Route::get('/pekerjaan', function(){
+  return view('opendata/pekerjaan');
+} );
+Route::get('/pendidikan', function(){
+  return view('opendata/pendidikan');
+} );
+Route::get('/sosial', function(){
+  return view('opendata/sosial');
+} );

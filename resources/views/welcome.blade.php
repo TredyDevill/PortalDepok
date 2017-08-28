@@ -11,7 +11,6 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
     height: 100%;
-    color: #777;
     line-height: 1.8;
 }
 
@@ -25,42 +24,22 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('img/bghidepok.png');
+    background-image: url('img/bg3.png');
     min-height: 100%;
 }
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("img/feature.jpg");
-    min-height: 400px;
+    background-image: url("img/bg2.jpg");
 }
 /* Third image (Contact) */
 .bgimg-3 {
-    background-image: url("img/bg.png");
+    background-image: url("img/pattern.jpg");
     min-height: 400px;
 }
 .label_header {
-  display: block;
-  text-align: center!important;
   letter-spacing: 10px;
-    font-size: 55px;
-}
-.see_more {
-  color: #fff!important;
-    background-color: #000!important;
-    float: right!important;
-    margin-top: 16px!important;
-    margin-bottom: 16px!important;
-    border: none;
-    display: inline-block;
-    outline: 0;
-    letter-spacing: 3px;
-    padding: 0.7em 2.5em;
-    vertical-align: middle;
-    overflow: hidden;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
+  font-size: 47px;
 }
 .flarge {
   font-size: 40pt;
@@ -68,7 +47,10 @@ body, html {
 }
 .w3-bar {
     padding: 1em 2em;
- }
+}
+.bottom-img {
+  margin-bottom:-83%;
+}
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
@@ -81,46 +63,108 @@ body, html {
 @media only screen and (max-width: 800px) {
     .label_header {
     letter-spacing: 5px;
-      font-size: 20px;
+    font-size: 25px;
   }
-  .see_more {
-      padding: 0.2em 1.8em;
-      font-size: 12px;
+  .bottom-img {
+    margin-bottom:-32%;
   }
 }
 </style>
+  <script>
+
+  <!----- JQUERY FOR SLIDING NAVIGATION --->
+  $(document).ready(function() {
+    $('a[href*=#]').each(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      && location.hostname == this.hostname
+      && this.hash.replace(/#/,'') ) {
+        var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+        var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+         if ($target) {
+           var targetOffset = $target.offset().top;
+
+  <!----- JQUERY CLICK FUNCTION REMOVE AND ADD CLASS "ACTIVE" + SCROLL TO THE #DIV--->
+           $(this).click(function() {
+              $("#nav li a").removeClass("active");
+              $(this).addClass('active');
+             $('html, body').animate({scrollTop: targetOffset}, 1000);
+             return false;
+           });
+        }
+      }
+    });
+
+  });
+  </script>
+
+    <script>
+      $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+      });
+    </script>
+
 <body>
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+  <div class="w3-bar w3-text-black" id="myNavbar">
+    <a class="w3-text-white w3-display-right w3-bar-item w3-hover-text-gray w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu" style="margin-right:3em">
       <i class="fa fa-bars"></i>
     </a>
-    <div class="w3-bar-item" style="letter-spacing: 5px; font-size:15pt"><b>HI-DEPOK</b></div>
-    <div class="w3-right w3-hide-small">
-      <a href="#home" class="w3-bar-item w3-button">Home</a>
+    <div class="w3-bar-item" style="letter-spacing: 5px; font-size:15pt">
+      <img src="{{ URL::asset('img/minilogo.png') }}" style="width:50px; height:50px">
+      <b class="w3-display-left" style="margin-left:5.5em">HI-DEPOK</b>
+    </div>
+    <div class="w3-right w3-hide-small w3-display-right" style="margin-right:3em">
       <a href="#download" class="w3-bar-item w3-button">Download</a>
+      <a href="hidepok/maps" class="w3-bar-item w3-button">Maps</a>
+      <a href="hidepok/blog" class="w3-bar-item w3-button">Blog</a>
+      <a href="hidepok/event" class="w3-bar-item w3-button">Event</a>
       <a href="#about" class="w3-bar-item w3-button">About</a>
     </div>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#home" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
     <a href="#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
+    <a href="link/maps1.php" class="w3-bar-item w3-button">Maps</a>
+    <a href="link/blog.php" class="w3-bar-item w3-button">Blog</a>
+    <a href="link/event.php" class="w3-bar-item w3-button">Event</a>
     <a href="#about" class="w3-bar-item w3-button">About</a>
   </div>
 </div>
 
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-  <label class="label_header w3-text-cyan w3-animate-zoom"><b> WE SHARE WE CARE </b></label>
-    <button class="see_more w3-hover-dark-gray" type="submit">
-      SEE MORE <i class="fa fa-arrow-right"></i>
-    </button>
+<div class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-content w3-display-middle" style="white-space:nowrap;">
+    <div class="w3-pale-yellow w3-animate-zoom" style="padding: 0em 2em">
+      <label class="label_header w3-text-cyan"><b> WE SHARE WE CARE </b></label>
+    </div>
     <!-- <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span> -->
+  </div>
+  <div class="w3-display-bottommiddle" style="width:100%; margin-bottom:-3px">
+    <img src="{{ URL::asset('img/cloud.png') }}" style="width:100%">
   </div>
 </div>
 
@@ -143,6 +187,113 @@ body, html {
   </div>
 </div>
 
+<!-- Blog -->
+<div class="w3-container w3-padding-64" style="padding:0px;">
+  <h3 class="w3-center" style="letter-spacing:5px">BLOG</h3>
+  <p class="w3-center"><em>Mari lihat apa yang terjadi pada Kota Depok</em></p><br>
+  <div class="w3-content w3-row" style="max-width:1200px">
+    <div class="w3-container w3-third">
+      <div class="w3-display-container w3-hover-opacity">
+        <img class="w3-grayscale" src="{{ URL::asset('img/blog1.png') }}" alt="Avatar" style="width:100%; height:400px;">
+        <div class="w3-display-topmiddle w3-display-hover" style="margin-top:45px">
+          <img src="{{ URL::asset('img/logodsc.png') }}" style="width:160px; height:110px">
+        </div>
+        <div class="w3-display-bottommiddle w3-display-hover w3-medium" style="margin-bottom:3px; width:100%">
+          <header class="w3-padding w3-light-grey">
+            <b>Wali Kota Ajak Warga Lestarikan Semangat Gotong Royong</b>
+          </header>
+          <div class="w3-padding w3-white">
+            Wali Kota Depok Mohammad Idris membuka kegiatan Perancangan Bulan Bhakti Gotong Royong Masyarakat (BBGRM)...
+          </div>
+          <button class="w3-button w3-block w3-cyan w3-text-white">See More </button>
+        </div>
+      </div>
+    </div>
+    <div class="w3-container w3-third">
+      <div class="w3-display-container w3-hover-opacity">
+        <img class="w3-grayscale" src="{{ URL::asset('img/blog2.png') }}" alt="Avatar" style="width:100%; height:400px;">
+        <div class="w3-display-topmiddle w3-display-hover" style="margin-top:45px">
+          <img src="{{ URL::asset('img/logodsc.png') }}" style="width:160px; height:110px">
+        </div>
+        <div class="w3-display-bottommiddle w3-display-hover w3-medium" style="margin-bottom:3px; width:100%">
+          <header class="w3-padding w3-light-grey">
+            <b>Wali Kota Ajak Warga Lestarikan Semangat Gotong Royong</b>
+          </header>
+          <div class="w3-padding w3-white">
+            Wali Kota Depok Mohammad Idris membuka kegiatan Perancangan Bulan Bhakti Gotong Royong Masyarakat (BBGRM)...
+          </div>
+          <button class="w3-button w3-block w3-cyan w3-text-white">See More </button>
+        </div>
+      </div>
+    </div>
+    <div class="w3-container w3-third">
+      <div class="w3-display-container w3-hover-opacity">
+        <img class="w3-grayscale" src="{{ URL::asset('img/blog3.png') }}" alt="Avatar" style="width:100%; height:400px;">
+        <div class="w3-display-topmiddle w3-display-hover" style="margin-top:45px">
+          <img src="{{ URL::asset('img/logodsc.png') }}" style="width:160px; height:110px">
+        </div>
+        <div class="w3-display-bottommiddle w3-display-hover w3-medium" style="margin-bottom:3px; width:100%">
+          <header class="w3-padding w3-light-grey">
+            <b>Wali Kota Ajak Warga Lestarikan Semangat Gotong Royong</b>
+          </header>
+          <div class="w3-padding w3-white">
+            Wali Kota Depok Mohammad Idris membuka kegiatan Perancangan Bulan Bhakti Gotong Royong Masyarakat (BBGRM)...
+          </div>
+          <button class="w3-button w3-block w3-cyan w3-text-white">See More </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bgimg-2 w3-padding-32 w3-opacity">
+  <h3 class="w3-center w3-padding-64 w3-xx  large w3-text-black" style="letter-spacing:5px"><b>EVENT</b></h3>
+</div>
+
+<div class="w3-container w3-padding-32">
+  <div class="w3-content w3-center" style="max-width:1000px">
+      <div class="w3-row"><br>
+        <div class=" w3-container w3-quarter">
+          <img src="{{ URL::asset('img/event1.jpg') }}" alt="Boss" style="width:175px; height:175px; border:7px solid #36a0a0" class="w3-circle w3-hover-opacity">
+          <h3>Johnny Walker</h3>
+          <p>Web Designer</p>
+        </div>
+        <div class="w3-container w3-quarter">
+          <img src="{{ URL::asset('img/event2.jpg') }}" alt="Boss" style="width:175px; height:175px; border:7px solid #36a0a0" class="w3-circle w3-hover-opacity">
+          <h3>Rebecca Flex</h3>
+          <p>Support</p>
+        </div>
+        <div class="w3-container w3-quarter">
+          <img src="{{ URL::asset('img/event3.png') }}" alt="Boss" style="width:175px; height:175px; border:7px solid #36a0a0" class="w3-circle w3-hover-opacity">
+          <h3>Jan Ringo</h3>
+          <p>Boss man</p>
+        </div>
+        <div class="w3-container w3-quarter">
+          <img src="{{ URL::asset('img/event4.jpg') }}" alt="Boss" style="width:175px; height:175px; border:7px solid #36a0a0" class="w3-circle w3-hover-opacity">
+          <h3>Kai Ringo</h3>
+          <p>Fixer</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+ <!-- Portal Section-->
+  <div class="bgimg-3 w3-container w3-text-dark-gray" id="band" style="margin-bottom:10em;">
+    <div class="w3-row w3-content w3-padding-32" style="max-width:1100px">
+      <div class="w3-half w3-text-dark-gray w3-padding-32" style="padding-left:3em ;padding-right:3em">
+        <h4><b>DEPOK OPEN DATA</b></h4>
+        <font class="w3-justify"> Merupakan Portal Data Terpadu Pemerintah Kota Depok yang menyajikan data-data dari seluruh Unit Kerja di Pemerintah dan Seluruh Instansi serta Organisasi Kota Depok. </font>
+        <br><br>
+        <a href= "/opendata">
+        <button class="w3-btn w3-dark-gray w3-padding-large">See More</button><br><br>
+        </a>
+      </div>
+      <div class="w3-half w3-center">
+        <img class="bottom-img" src="{{ URL::asset('img/b3.png') }}" style="width:100%;">
+      </div>
+    </div>
+  </div>
+
 <!-- Fitur -->
 <div class="w3-content w3-container w3-padding-64">
   <h3 class="w3-center" style="letter-spacing:5px">FEATURES</h3>
@@ -150,15 +301,15 @@ body, html {
 
   <div class="w3-content w3-center w3-display-container">
     <div class="w3-display-container mySlides">
-      <img src="img/fitur1.png" style="width:510px">
+      <img src="{{ URL::asset('img/fitur1.png') }}" style="width:510px">
     </div>
 
     <div class="w3-display-container mySlides">
-      <img src="img/fitur2.png" style="width:510px">
+      <img src="{{ URL::asset('img/fitur2.png') }}" style="width:510px">
     </div>
 
     <div class="w3-display-container mySlides">
-      <img src="img/fitur3.png" style="width:510px">
+      <img src="{{ URL::asset('img/fitur3.png') }}" style="width:510px">
     </div>
 
     <button class="w3-button w3-display-left w3-light-gray" onclick="plusDivs(-1)">&#10094;</button>
@@ -166,6 +317,7 @@ body, html {
 
     </div>
 </div>
+
 
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="w3-container w3-padding-32">
@@ -176,18 +328,18 @@ body, html {
 <!-- Search Data -->
 <div class="w3-row w3-center w3-light-gray w3-padding-64">
   <h3 class="w3-center" style="margin-bottom:2em">
-    SEARCH DATA <img src="img/icon/map.png" class="w3-circle" style="width:50px;">
+    SEARCH DATA
   </h3>
   <div class="w3-content" style="max-width:1000px;">
     <div class="w3-row-padding" id="plans">
       <div class="w3-third w3-margin-bottom">
-        <img src="img/diagnosa.png" width="280" height="530">
+        <img src="{{ URL::asset('img/diagnosa.png') }}" width="280" height="530">
       </div>
       <div class="w3-third w3-margin-bottom">
         <img src="img/space.png" width="280" height="530">
       </div>
       <div class="w3-third w3-margin-bottom">
-        <img src="img/skos.png" width="280" height="530">
+        <img src="{{ URL::asset('img/skos.png') }}" width="280" height="530">
       </div>
     </div>
   </div>
@@ -207,14 +359,9 @@ body, html {
       <p style="font-size:12pt">
         Hi-Depok merupakan wujud peningkatan pelayanan pemerintah Kota Depok kepada warganya. Aplikasi ini dapat membantu warga Kota Depok dalam berbagai aspek pelayanan seperti pelayanan kesehatan, keamanan, sosial dan juga kebutuhan akan informasi.
       </p>
-      <img src="img/gplay.png" class="w3-round w3-image" alt="Get for Android" width="150" height="333">
+      <img src="{{ URL::asset('img/gplay.png') }}" class="w3-round w3-image" alt="Get for Android" width="150" height="333">
     </div>
   </div>
-</div>
-
-
-<div class="w3-row w3-center w3-cyan">
-  <hr style="margin: 10px 0px 40px;">
 </div>
 
 <!-- Footer -->
@@ -259,38 +406,15 @@ body, html {
 
 <!-- Add Google Maps -->
 <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(41.878114, -87.629798);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-black" + " w3-text-white";
     } else {
-        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-black w3-text-white", "");
     }
 }
 
@@ -323,6 +447,11 @@ function toggleFunction() {
       x[slideIndex-1].style.display = "block";
     }
     </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
 
 </body>
 </html>

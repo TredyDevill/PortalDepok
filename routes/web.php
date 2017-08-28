@@ -41,3 +41,13 @@ Route::get('/pendidikan', function(){
 Route::get('/sosial', function(){
   return view('opendata/sosial');
 } );
+
+Route::get('/hidepok/maps', function(){
+  return view('hidepok/maps');
+} );
+Route::get('/hidepok/blog', function(){
+  return view('hidepok/blog');
+} );
+Route::get('/hidepok/event', function(){
+  return view('hidepok/event');
+} );

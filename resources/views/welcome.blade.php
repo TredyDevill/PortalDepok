@@ -69,6 +69,71 @@ body, html {
     margin-bottom:-32%;
   }
 }
+.loader,
+.loader:before,
+.loader:after {
+      border-radius: 50%;
+      width: 2.5em;
+      height: 2.5em;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation: load7 1.8s infinite ease-in-out;
+      animation: load7 1.8s infinite ease-in-out;
+      }
+.loader {
+      color: #FF1000;
+      font-size: 10px;
+      margin: 80px auto;
+      position: relative;
+      text-indent: -9999em;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+      }
+.loader:before,
+.loader:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      }
+.loader:before {
+      left: -3.5em;
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+      }
+.loader:after {
+      left: 3.5em;
+      }
+@-webkit-keyframes load7 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0;
+      }
+    }
+@keyframes load7 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0;
+        }
+      }
+#loadingDiv {
+      position:absolute;;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:#ffffff;
+      }
 </style>
   <script>
 
@@ -407,6 +472,26 @@ body, html {
 <!-- Add Google Maps -->
 <script>
 
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+//script untuk page loading
+$('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+$(window).on('load', function(){
+setTimeout(removeLoader, 500); //wait for page load PLUS two seconds.
+});
+function removeLoader(){
+$( "#loadingDiv" ).fadeOut(500, function() {
+// fadeOut complete. Remove the loading div
+$( "#loadingDiv" ).remove(); //makes page more lightweight
+});
+}
+
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
 function myFunction() {
@@ -446,12 +531,8 @@ function toggleFunction() {
       }
       x[slideIndex-1].style.display = "block";
     }
+
     </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
 
 </body>
 </html>

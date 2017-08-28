@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Portal Depok</title>
+<title>Depok Open Data</title>
 <link rel="shortcut icon" href="{{URL::asset('/img/logoopendata.png')}}">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,19 +112,17 @@ body, html {
     </div>
     <div class="w3-bar-item w3-text-white" style="letter-spacing: 3px; font-size:15pt;padding:8px 12px;"><b>OPEN DATA</b></div>
     <div class="w3-right w3-hide-small" style="color:#575f8a">
-      <a href="#home" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Data</a>
-      <a href="#contact" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Organisasi</a>
-      <a href="#about" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Topik</a>
-      <a href="#about" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
+      <a href="/data" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Data</a>
+      <a href="/topik" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Topik</a>
+      <a href="/tentang" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
     </div>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#home" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Organisasi</a>
-    <a href="#about" class="w3-bar-item w3-button">Topik</a>
-    <a href="#about" class="w3-bar-item w3-button">Tentang</a>
+    <a href="/data" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
+    <a href="/topik" class="w3-bar-item w3-button">Topik</a>
+    <a href="/tentang" class="w3-bar-item w3-button">Tentang</a>
   </div>
 </div>
 
@@ -177,19 +175,9 @@ body, html {
 
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6">
-      <a href="/kesehatan">
+      <a href="/opendata/pendidikan">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/kesehatan.png')}}" style="width:100%" alt="Kesehatan">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">KESEHATAN</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="w3-col l3 m6">
-      <a href="/pendidikan">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%" alt="Pendidikan">
+          <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%" alt="Kesehatan">
           <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
             <div class="w3-text-white w3-medium" style="letter-spacing:2px">PENDIDIKAN</div>
           </div>
@@ -197,21 +185,31 @@ body, html {
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/pariwisata">
+      <a href="/opendata/kesehatan">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/pariwisata.png')}}" style="width:100%" alt="Pariwisata">
+          <img src="{{URL::asset('/img/kesehatan.png')}}" style="width:100%" alt="Pendidikan">
           <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PARIWISATA</div>
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">KESEHATAN</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/keuangan">
+      <a href="/opendata/perekonomian">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/keuangan.png')}}" style="width:100%" alt="Keuangan">
+          <img src="{{URL::asset('/img/keuangan.png')}}" style="width:100%" alt="Pariwisata">
           <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">KEUANGAN</div>
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PEREKONOMIAN</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="w3-col l3 m6">
+      <a href="/opendata/fasilitasumum">
+        <div class="w3-display-container w3-hover-opacity">
+          <img src="{{URL::asset('/img/fasilitasumum.png')}}" style="width:100%" alt="Keuangan">
+          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">FASILITAS UMUM</div>
           </div>
         </div>
       </a>
@@ -220,83 +218,94 @@ body, html {
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col l3 m6">
-      <a href="/bencana">
+      <a href="/opendata/transportasi">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/bencana.png')}}" style="width:100%" alt="Bencana">
+          <img src="{{URL::asset('/img/transportasi.png')}}" style="width:100%" alt="Bencana">
           <div class="w3-display-right w3-display-hover" style="top: 30%; right: 5%;">
-            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">PENANGGULANGAN<br>BENCANA</div>
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">TRANSPORTASI</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/kependudukan">
+      <a href="/opendata/sosial">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/kependudukan.png')}}" style="width:100%" alt="Kependudukan">
+          <img src="{{URL::asset('/img/sosial.png')}}" style="width:100%" alt="Kependudukan">
           <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">KEPENDUDUKAN</div>
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">SOSIAL</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/pendidikan">
+      <a href="/opendata/pariwisata">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%">
+          <img src="{{URL::asset('/img/pariwisata.png')}}" style="width:100%">
           <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PENDIDIKAN</div>
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PARIWISATA</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/bencana">
+      <a href="/opendata/olahraga">
         <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/bencana.png')}}" style="width:100%" alt="Bencana">
+          <img src="{{URL::asset('/img/olahraga.png')}}" style="width:100%" alt="Bencana">
           <div class="w3-display-right w3-display-hover" style="top: 30%; right: 5%;">
-            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">PENANGGULANGAN<br>BENCANA</div>
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">OLAHRAGA</div>
           </div>
         </div>
       </a>
     </div>
   </div>
+  </div>
+</div>
 
   <div class="w3-row-padding w3-section w3-center">
-    <button class="w3-btn w3-text-white w3-round-large w3-padding-large" style="background-color:#575f8a">Selengkapnya</button>
+    <a href="/topik">
+      <button class="w3-btn w3-text-white w3-round-large w3-padding-large" style="background-color:#575f8a">Selengkapnya</button>
+    </a>
   </div>
 </div>
 
 
 <!-- Container (Contact Section) -->
 <!-- The Band Section -->
-  <div class="w3-container w3-center w3-text-white w3-padding-64" style="background-color:#575f8a">
-    <h3 style="w3-content">DATA TERPOPULER</h3><br>
-    <div class="w3-content w3-left-align">
-      <h6 style="color:#f1e99d; margin:0px"><b>Data Jadwal Pengawasan Kinerja SKPD</b></h6>
-      <p class="w3-justify">Dataset ini berisi jadwal pengawasan kinerja SKPD/UKPD di Provinsi DKI Jakarta. Data ini terdiri dari: Satuan kerja perangkat daerah Bulan evaluasi...</p>
+<div class="w3-container w3-center w3-text-white w3-padding-64" style="background-color:#575f8a">
+  <h3 style="w3-content">DATA TERBARU</h3><br>
+  <div class="w3-content w3-left-align">
+    <h6 style="color:#f1e99d; margin:0px"><b>Data Jadwal Pengawasan Kinerja SKPD</b></h6>
+    <p class="w3-justify">Dataset ini berisi jadwal pengawasan kinerja SKPD/UKPD di Provinsi DKI Jakarta. Data ini terdiri dari: Satuan kerja perangkat daerah Bulan evaluasi...</p>
+    <!-- ini jg di edit untuk nge-linknya, yg di bawahnya jg-->
+    <a href="/detail">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
 
-      <hr style="border-top: 1px solid rgba(238, 238, 238, 0.16);">
-      <h6 style="color:#f1e99d; margin:0px"><b>Data Usaha Jasa Akomodasi Hotel Bintang</b></h6>
-      <p class="w3-justify">Dataset ini merupakan kumpulan daftar nama hotel berbintang dan hotel non bintang yang ada di DKI Jakarta. data mencakup: nama usaha = nama hotel alamat...</p>
+    <hr style="border-top: 1px solid rgba(238, 238, 238, 0.16);">
+    <h6 style="color:#f1e99d; margin:0px"><b>Data Usaha Jasa Akomodasi Hotel Bintang</b></h6>
+    <p class="w3-justify">Dataset ini merupakan kumpulan daftar nama hotel berbintang dan hotel non bintang yang ada di DKI Jakarta. data mencakup: nama usaha = nama hotel alamat...</p>
+    <a href="/detailp">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
 
-      <hr style="border-top: 1px solid rgba(238, 238, 238, 0.16);">
-      <h6 style="color:#f1e99d; margin:0px"><b>Data Kunjungan Wisatawan Nusantara ke Destinasi Wisata</b></h6>
-      <p class="w3-justify">Data ini berisi mengenai jumlah wisatawan nusantara ke destinasi wisata di DKI Jakarta. Penjelasan mengenai Variabel pada Dataset ini: tahun nama_provinsi...</p>
+    <hr style="border-top: 1px solid rgba(238, 238, 238, 0.16);">
+    <h6 style="color:#f1e99d; margin:0px"><b>Data Kunjungan Wisatawan Nusantara ke Destinasi Wisata</b></h6>
+    <p class="w3-justify">Data ini berisi mengenai jumlah wisatawan nusantara ke destinasi wisata di DKI Jakarta. Penjelasan mengenai Variabel pada Dataset ini: tahun nama_provinsi...</p>
+    <a href="/detail">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </div>
+    </a>
   </div>
+</div>
 
-<div class="w3-row w3-center" id="contact" style="background-color:#575f8a">
+<div class="w3-center" id="contact" style="background-color:#575f8a">
   <img src="{{URL::asset('/img/down-01.png')}}" width="50%">
 </div>
 
 <div class="w3-row w3-center" style="background-color: #f1e99d!important;">
-  <div class="w3-content" style="max-width:900px;">
-  <div class="w3-quarter w3-section">
+  <div class="w3-content" style="max-width:800px;">
+    <div class="w3-quarter w3-section">
     <img src="{{URL::asset('/img/logodpk.png')}}" width="200px" height="75px" style="padding-top:1.5em">
-  </div>
+    </div>
   <div class="w3-quarter w3-section">
     <img src="{{URL::asset('/img/logodsc.png')}}" width="180px" height="100px">
   </div>
@@ -311,16 +320,43 @@ body, html {
 
 <!-- w3-hover-opacity-off -->
 <!-- Footer -->
-<footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge">
-  <div class="w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+<footer class="w3-center w3-light-gray w3-padding w3-text-dark-gray">
+  <div class="w3-row">
+    <div class="w3-third w3-container">
+      <div class="w3-xlarge w3-section" style="letter-spacing:8px">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <h3 style="letter-spacing:3px">DEPOK OPEN DATA</h3>
+    </div>
+    <div class="w3-third w3-container" style="padding:21px">
+      <a href="/data" class="w3-bar-item w3-hover-text-blue" style="text-decoration:none" onclick="toggleFunction()">Data</a>
+      <a href="/topik" class="w3-bar-item w3-hover-text-blue" style="text-decoration:none;padding: 0em 1.7em;" onclick="toggleFunction()">Topik</a>
+      <a href="/tentang" class="w3-bar-item w3-hover-text-blue" style="text-decoration:none">Tentang</a>
+    </div>
   </div>
-  <p class="w3-medium">Supported by TiregDev © 2017 </p>
+  <hr style="margin: 0em 6em;border-top: 1px solid rgba(173, 171, 171, 0.35);">
+  <div class="w3-row w3-small w3-padding">
+    <div class="w3-content" style="max-width:700px">
+      <div class="w3-third w3-container">
+        <h5>MAIL</h5>
+        <p>humas@hidepok.id</p>
+      </div>
+      <div class="w3-third w3-container">
+        <h5>CALL</h5>
+        <p>+62 811 222 333 11</p>
+      </div>
+      <div class="w3-third w3-container">
+        <h5>FIND US</h5>
+        <p>Jalan Margonda No.54, Depok</p>
+      </div>
+    </div>
+  </div>
+  <hr style="margin: 0em 6em; border-top: 1px solid rgba(173, 171, 171, 0.35);">
+  <p>Supported by TiregDev © 2017</p>
 </footer>
 
 <!-- Add Google Maps -->
@@ -370,7 +406,6 @@ function toggleFunction() {
     }
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp

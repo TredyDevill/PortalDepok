@@ -38,7 +38,6 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
     <a href="/data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data</a>
-    <a href="/organisasi" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Organisasi</a>
     <a href="/topik" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Topik</a>
     <a href="/tentang" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
   </div>
@@ -63,41 +62,41 @@ body {font-size:16px;}
   <!-- Isi Data -->
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6">
-      <a href="/kesehatan">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/kesehatan.png')}}" style="width:100%" alt="Kesehatan">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">KESEHATAN</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="w3-col l3 m6">
-      <a href="/pendidikan">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%" alt="Pendidikan">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
+      <a href="/opendata/pendidikan">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%" alt="Kesehatan">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
             <div class="w3-text-white w3-medium" style="letter-spacing:2px">PENDIDIKAN</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/pariwisata">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/pariwisata.png')}}" style="width:100%" alt="Pariwisata">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PARIWISATA</div>
+      <a href="/opendata/kesehatan">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/kesehatan.png')}}" style="width:100%" alt="Pendidikan">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">KESEHATAN</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/keuangan">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/keuangan.png')}}" style="width:100%" alt="Keuangan">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">KEUANGAN</div>
+      <a href="/opendata/perekonomian">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/keuangan.png')}}" style="width:100%" alt="Pariwisata">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PEREKONOMIAN</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="w3-col l3 m6">
+      <a href="/opendata/fasilitasumum">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/fasilitasumum.png')}}" style="width:100%" alt="Keuangan">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">FASILITAS UMUM</div>
           </div>
         </div>
       </a>
@@ -106,46 +105,80 @@ body {font-size:16px;}
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col l3 m6">
-      <a href="/bencana">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/bencana.png')}}" style="width:100%" alt="Bencana">
-          <div class="w3-display-right w3-display-hover" style="top: 30%; right: 5%;">
-            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">PENANGGULANGAN<br>BENCANA</div>
+      <a href="/opendata/sosial">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/sosial.png')}}" style="width:100%" alt="Kependudukan">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">SOSIAL</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/kependudukan">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/kependudukan.png')}}" style="width:100%" alt="Kependudukan">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
+      <a href="/opendata/pariwisata">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/pariwisata.png')}}" style="width:100%">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PARIWISATA</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="w3-col l3 m6">
+      <a href="/opendata/olahraga">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/olahraga.png')}}" style="width:100%" alt="Bencana">
+          <div class="w3-display-right" style="top: 30%; right: 5%;">
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">OLAHRAGA</div>
+          </div>
+        </div>
+      </a>
+    </div>
+      <div class="w3-col l3 m6">
+        <a href="/opendata/transportasi">
+          <div class="w3-display-container w3-opacity-min">
+            <img src="{{URL::asset('/img/transportasi.png')}}" style="width:100%" alt="Bencana">
+            <div class="w3-display-right" style="top: 30%; right: 5%;">
+              <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">TRANSPORTASI</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+      <a href="topik/keagamaan.php">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/keagamaan.png')}}" style="width:100%" alt="Keagamaan">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">KEAGAMAAN</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="w3-col l3 m6">
+      <a href="topik/kependudukan.php">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('img/kependudukan.png')}}" style="width:100%" alt="Kependudukan">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
             <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">KEPENDUDUKAN</div>
           </div>
         </div>
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/pendidikan">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%">
-          <div class="w3-display-right w3-display-hover" style="top: 24%; right: 5%;">
-            <div class="w3-text-white w3-medium" style="letter-spacing:2px">PENDIDIKAN</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="w3-col l3 m6">
-      <a href="/bencana">
-        <div class="w3-display-container w3-hover-opacity">
-          <img src="{{URL::asset('/img/bencana.png')}}" style="width:100%" alt="Bencana">
-          <div class="w3-display-right w3-display-hover" style="top: 30%; right: 5%;">
-            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">PENANGGULANGAN<br>BENCANA</div>
+      <a href="topik/instansi.php">
+        <div class="w3-display-container w3-opacity-min">
+          <img src="{{URL::asset('/img/instansi.png')}}" style="width:100%" alt="Instansi">
+          <div class="w3-display-right" style="top: 24%; right: 5%;">
+            <div class="w3-text-white w3-medium w3-right-align" style="letter-spacing:2px">INSTANSI</div>
           </div>
         </div>
       </a>
     </div>
   </div>
+
   </div>
 </div>
 <!-- End page content -->

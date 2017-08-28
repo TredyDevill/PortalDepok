@@ -27,6 +27,19 @@ body {font-size:16px;}
   }
 }
 </style>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBMMk6zvo74RBODnnOIl0F5EitIxhMZsMY",
+    authDomain: "hi-depok2-39129.firebaseapp.com",
+    databaseURL: "https://hi-depok2-39129.firebaseio.com",
+    projectId: "hi-depok2-39129",
+    storageBucket: "hi-depok2-39129.appspot.com",
+    messagingSenderId: "657283490375"
+  };
+  firebase.initializeApp(config);
+</script>
 <body>
 
 <!-- Sidebar/menu -->
@@ -38,7 +51,6 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
     <a href="/data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Data</a>
-    <a href="/organisasi" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Organisasi</a>
     <a href="/topik" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Topik</a>
     <a href="/tentang" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
   </div>
@@ -74,35 +86,95 @@ body {font-size:16px;}
       </select>
       <button class="w3-btn blue w3-text-white">Go</button>
     </form>
-    <h4 style="color:#575f8a; margin:6px"><b>1289 Data Ditemukan</b></h4><br><br>
+    <h4 id="datattl" style="color:#575f8a; margin:6px"></h4><br><br>
+    <script>
+      var datattl = document.getElementById("datattl");
+      var total = 0;
+      function jmlh() {
+        total++;
+        datattl.innerHTML=total + " Data Ditemukan";
+      }
+    </script>
+
+    <h6 id="data" style="margin:0px"></h6>
+    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
+    <a href="/detail">
+      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
+
+    <script>
+      var ti = document.getElementById("data");
+      var tiref = firebase.database().ref("Tempat Ibadah");
+      var jmlhti = 0;
+      tiref.on("value", function(snapshot){
+      snapshot.forEach(function(ti2){
+        jmlhti++;
+        jmlh();
+        ti.innerHTML=  " <b>Data Tempat Ibadah";
+      });
+      });
+    </script>
+
+    <hr>
+    <p><h6 id="data2" style="margin:0px"></h6></p>
+    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
+    <a href="/detail">
+      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
+
+    <script>
+      var tpu = document.getElementById("data2");
+      var tpuref = firebase.database().ref("TPU");
+      var jmlhtpu = 0;
+      tpuref.on("value", function(snapshot2){
+      snapshot2.forEach(function(tpu2){
+        jmlhtpu++;
+        jmlh();
+        tpu.innerHTML= " <b>Data TPU";
+      });
+      });
+    </script>
+
+    <hr>
+    <h6 id="data3" style="margin:0px"></h6>
+    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
+    <a href="/detail">
+      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
+
+    <script>
+      var tmn = document.getElementById("data3");
+      var tmnref = firebase.database().ref("Pertamanan");
+      var jmlhtmn = 0;
+      tmnref.on("value", function(snapshot3){
+      snapshot3.forEach(function(tmn3){
+        jmlhtmn++;
+        jmlh();
+        tmn.innerHTML= " <b>Data Ruang Terbuka Hijau";
+      });
+      });
+    </script>
+
+    <hr>
     <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
     <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    <a href="/detail">
+      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
 
     <hr>
     <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
     <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    <a href="/detail">
+      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
 
     <hr>
     <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
     <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    <a href="/detail">
+      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
 
     <!-- Pagination -->
     <br><br><br>
@@ -124,43 +196,7 @@ body {font-size:16px;}
 <!-- W3.CSS Container -->
 <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Supported by TiregDev © 2017</p></div>
 
-  <!-- Tabs -->
-  <script>
-  function openCity(evt, cityName) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
-       tablinks[i].className = tablinks[i].className.replace(" w3-border-black", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.firstElementChild.className += " w3-border-black";
-  }
-  </script>
 
-  <script>
-  // Script to open and close sidebar
-  function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-  }
-
-  function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-  }
-
-  // Modal Image Gallery
-  function onClick(element) {
-    document.getElementById("img01").src = element.src;
-    document.getElementById("modal01").style.display = "block";
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = element.alt;
-  }
-  </script>
 
 </body>
 </html>

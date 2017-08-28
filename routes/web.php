@@ -21,6 +21,9 @@ Route::get('/opendata', function () {
 Route::get('/data', function () {
     return view('opendata/data');
 });
+Route::get('/detail', function () {
+    return view('opendata/detail');
+});
 Route::get('/organisasi', function () {
     return view('opendata/organisasi');
 });
@@ -31,27 +34,33 @@ Route::get('/topik', function () {
     return view('opendata/topik');
 });
 
-Route::get('/bencana', function(){
-  return view('topik/bencana');
-} );
-Route::get('/kependudukan', function(){
-  return view('topik/kependudukan');
-} );
-Route::get('/kesehatan', function(){
-  return view('topik/kesehatan');
-} );
-Route::get('/keuangan', function(){
-  return view('topik/keuangan');
-} );
-Route::get('/pariwisata', function(){
-  return view('topik/pariwisata');
-} );
-Route::get('/pekerjaan', function(){
-  return view('topik/pekerjaan');
-} );
-Route::get('/pendidikan', function(){
+Route::post('/tempatibadah', 'SearchController@searchti');
+
+
+Route::get('/opendata/pendidikan', function(){
   return view('topik/pendidikan');
 } );
-Route::get('/sosial', function(){
+Route::get('/opendata/kesehatan', function(){
+  return view('topik/kesehatan');
+} );
+Route::get('/opendata/perekonomian', function(){
+  return view('topik/perekonomian');
+} );
+Route::get('/opendata/fasilitasumum', function(){
+  return view('topik/fasilitasumum');
+} );
+Route::get('/opendata/transportasi', function(){
+  return view('topik/transportasi');
+} );
+Route::get('/opendata/sosial', function(){
   return view('topik/sosial');
+} );
+Route::get('/opendata/pariwisata', function(){
+  return view('topik/pariwisata');
+} );
+Route::get('/opendata/olahraga', function(){
+  return view('topik/olahraga');
+} );
+Route::get('/opendata/fasilitas', function(){
+  return view('topik/fasilitas');
 } );

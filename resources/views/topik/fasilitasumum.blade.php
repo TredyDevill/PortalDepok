@@ -64,7 +64,7 @@
 
     <script>
       var ti = document.getElementById("data");
-      var tiref = firebase.database().ref("Tempat Ibadah");
+      var tiref = firebase.database().ref("Tempat_Ibadah");
       var jmlhti = 0;
       tiref.on("value", function(snapshot){
       snapshot.forEach(function(ti2){

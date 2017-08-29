@@ -62,7 +62,7 @@ body {font-size:16px;}
   <!-- Isi Data -->
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6">
-      <a href="/opendata/pendidikan">
+      <a href="/topik/pendidikan">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/pendidikan.png')}}" style="width:100%" alt="Kesehatan">
           <div class="w3-display-right" style="top: 24%; right: 5%;">
@@ -72,7 +72,7 @@ body {font-size:16px;}
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/opendata/kesehatan">
+      <a href="/topik/kesehatan">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/kesehatan.png')}}" style="width:100%" alt="Pendidikan">
           <div class="w3-display-right" style="top: 24%; right: 5%;">
@@ -82,7 +82,7 @@ body {font-size:16px;}
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/opendata/perekonomian">
+      <a href="/topik/perekonomian">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/keuangan.png')}}" style="width:100%" alt="Pariwisata">
           <div class="w3-display-right" style="top: 24%; right: 5%;">
@@ -92,7 +92,7 @@ body {font-size:16px;}
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/opendata/fasilitasumum">
+      <a href="/topik/fasilitasumum">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/fasilitasumum.png')}}" style="width:100%" alt="Keuangan">
           <div class="w3-display-right" style="top: 24%; right: 5%;">
@@ -105,7 +105,7 @@ body {font-size:16px;}
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col l3 m6">
-      <a href="/opendata/sosial">
+      <a href="/topik/sosial">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/sosial.png')}}" style="width:100%" alt="Kependudukan">
           <div class="w3-display-right" style="top: 24%; right: 5%;">
@@ -115,7 +115,7 @@ body {font-size:16px;}
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/opendata/pariwisata">
+      <a href="/topik/pariwisata">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/pariwisata.png')}}" style="width:100%">
           <div class="w3-display-right" style="top: 24%; right: 5%;">
@@ -125,7 +125,7 @@ body {font-size:16px;}
       </a>
     </div>
     <div class="w3-col l3 m6">
-      <a href="/opendata/olahraga">
+      <a href="/topik/olahraga">
         <div class="w3-display-container w3-opacity-min">
           <img src="{{URL::asset('/img/olahraga.png')}}" style="width:100%" alt="Bencana">
           <div class="w3-display-right" style="top: 30%; right: 5%;">
@@ -135,7 +135,7 @@ body {font-size:16px;}
       </a>
     </div>
       <div class="w3-col l3 m6">
-        <a href="/opendata/transportasi">
+        <a href="/topik/transportasi">
           <div class="w3-display-container w3-opacity-min">
             <img src="{{URL::asset('/img/transportasi.png')}}" style="width:100%" alt="Bencana">
             <div class="w3-display-right" style="top: 30%; right: 5%;">

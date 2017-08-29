@@ -37,32 +37,36 @@ Route::get('/topik', function () {
 Route::post('/tempatibadah', 'SearchController@searchti');
 
 
-Route::get('/opendata/pendidikan', function(){
+Route::get('/topik/pendidikan', function(){
   return view('topik/pendidikan');
 } );
-Route::get('/opendata/kesehatan', function(){
+Route::get('/topik/kesehatan', function(){
   return view('topik/kesehatan');
 } );
-Route::get('/opendata/perekonomian', function(){
+Route::get('/topik/perekonomian', function(){
   return view('topik/perekonomian');
 } );
-Route::get('/opendata/fasilitasumum', function(){
+Route::get('/topik/fasilitasumum', function(){
   return view('topik/fasilitasumum');
 } );
-Route::get('/opendata/transportasi', function(){
+Route::get('/topik/transportasi', function(){
   return view('topik/transportasi');
 } );
-Route::get('/opendata/sosial', function(){
+Route::get('/topik/sosial', function(){
   return view('topik/sosial');
 } );
-Route::get('/opendata/pariwisata', function(){
+Route::get('/topik/pariwisata', function(){
   return view('topik/pariwisata');
 } );
-Route::get('/opendata/olahraga', function(){
+Route::get('/topik/olahraga', function(){
   return view('topik/olahraga');
 } );
-Route::get('/opendata/fasilitas', function(){
+Route::get('/topik/fasilitas', function(){
   return view('topik/fasilitas');
+} );
+
+Route::get('/detail/RumahSakit', function(){
+  return view('detail/detRS');
 } );
 
 Route::get('/hidepok/maps', function(){

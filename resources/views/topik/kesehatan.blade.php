@@ -43,19 +43,19 @@
       var total = 0;
       function jmlh() {
         total++;
-        datattl.innerHTML=total + " <b>Data Ditemukan</b>";
+        datattl.innerHTML=total + " <b>Data Kesehatan</b>";
       }
     </script>
     <!-- Isi Data -->
     <h6 id="data" style="margin:0px"></h6>
     <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail">
+    <a href="/detail/RumahSakit">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
     <script>
       var rs = document.getElementById("data");
-      var rsref = firebase.database().ref("Rumah Sakit");
+      var rsref = firebase.database().ref("Rumah_Sakit");
       var jmlhrs = 0;
       rsref.on("value", function(snapshot){
       snapshot.forEach(function(rs2){
@@ -67,7 +67,7 @@
     </script>
 
     <script>
-      
+
     </script>
 
     <hr>

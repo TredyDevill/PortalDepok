@@ -56,7 +56,7 @@
 
     <script>
       var pa = document.getElementById("data");
-      var paref = firebase.database().ref("Panti Asuhan");
+      var paref = firebase.database().ref("Panti_Asuhan");
       var jmlhpa = 0;
       paref.on("value", function(snapshot){
       snapshot.forEach(function(pa2){

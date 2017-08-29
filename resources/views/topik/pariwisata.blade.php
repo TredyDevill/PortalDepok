@@ -80,7 +80,7 @@
       snapshot2.forEach(function(wst2){
         jmlhwst++;
         jmlh();
-        wst.innerHTML=  " <b>Data Tempat Wisatar";
+        wst.innerHTML=  " <b>Data Tempat Wisata";
       });
       });
     </script>

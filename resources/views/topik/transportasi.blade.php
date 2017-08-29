@@ -75,7 +75,7 @@
 
     <script>
       var jp = document.getElementById("data2");
-      var jpref = firebase.database().ref("Jasa Pengiriman");
+      var jpref = firebase.database().ref("Jasa_Pengiriman");
       var jmlhjp = 0;
       jpref.on("value", function(snapshot2){
       snapshot2.forEach(function(jp2){

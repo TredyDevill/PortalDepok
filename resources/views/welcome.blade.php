@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
@@ -54,6 +56,7 @@ body, html {
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
+
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -69,97 +72,33 @@ body, html {
     margin-bottom:-32%;
   }
 }
-.loader,
-.loader:before,
-.loader:after {
-      border-radius: 50%;
-      width: 2.5em;
-      height: 2.5em;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-      -webkit-animation: load7 1.8s infinite ease-in-out;
-      animation: load7 1.8s infinite ease-in-out;
-      }
-.loader {
-      color: #FF1000;
-      font-size: 10px;
-      margin: 80px auto;
-      position: relative;
-      text-indent: -9999em;
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-animation-delay: -0.16s;
-      animation-delay: -0.16s;
-      }
-.loader:before,
-.loader:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      }
-.loader:before {
-      left: -3.5em;
-      -webkit-animation-delay: -0.32s;
-      animation-delay: -0.32s;
-      }
-.loader:after {
-      left: 3.5em;
-      }
-@-webkit-keyframes load7 {
-      0%,
-      80%,
-      100% {
-        box-shadow: 0 2.5em 0 -1.3em;
-      }
-      40% {
-        box-shadow: 0 2.5em 0 0;
-      }
-    }
-@keyframes load7 {
-      0%,
-      80%,
-      100% {
-        box-shadow: 0 2.5em 0 -1.3em;
-      }
-      40% {
-        box-shadow: 0 2.5em 0 0;
-        }
-      }
-#loadingDiv {
-      position:absolute;;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background-color:#ffffff;
-      }
+
 </style>
   <script>
 
-  <!----- JQUERY FOR SLIDING NAVIGATION --->
-  $(document).ready(function() {
-    $('a[href*=#]').each(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-      && location.hostname == this.hostname
-      && this.hash.replace(/#/,'') ) {
-        var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
-        var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
-         if ($target) {
-           var targetOffset = $target.offset().top;
-
-  <!----- JQUERY CLICK FUNCTION REMOVE AND ADD CLASS "ACTIVE" + SCROLL TO THE #DIV--->
-           $(this).click(function() {
-              $("#nav li a").removeClass("active");
-              $(this).addClass('active');
-             $('html, body').animate({scrollTop: targetOffset}, 1000);
-             return false;
-           });
-        }
-      }
-    });
-
-  });
+  // <!----- JQUERY FOR SLIDING NAVIGATION --->
+  // $(document).ready(function() {
+  //   $('a[href*=#]').each(function() {
+  //     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+  //     && location.hostname == this.hostname
+  //     && this.hash.replace(/#/,'') ) {
+  //       var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+  //       var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+  //        if ($target) {
+  //          var targetOffset = $target.offset().top;
+  //
+  // <!----- JQUERY CLICK FUNCTION REMOVE AND ADD CLASS "ACTIVE" + SCROLL TO THE #DIV--->
+  //          $(this).click(function() {
+  //             $("#nav li a").removeClass("active");
+  //             $(this).addClass('active');
+  //            $('html, body').animate({scrollTop: targetOffset}, 1000);
+  //            return false;
+  //          });
+  //       }
+  //     }
+  //   });
+  //
+  // });
   </script>
 
     <script>
@@ -190,7 +129,6 @@ body, html {
     </script>
 
 <body>
-
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-text-black" id="myNavbar">
@@ -480,17 +418,7 @@ function onClick(element) {
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
 }
-//script untuk page loading
-$('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
-$(window).on('load', function(){
-setTimeout(removeLoader, 500); //wait for page load PLUS two seconds.
-});
-function removeLoader(){
-$( "#loadingDiv" ).fadeOut(500, function() {
-// fadeOut complete. Remove the loading div
-$( "#loadingDiv" ).remove(); //makes page more lightweight
-});
-}
+
 
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};

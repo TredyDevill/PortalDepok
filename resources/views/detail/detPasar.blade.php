@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Detail Rumah Sakit</title>
+<title>Detail Pasar</title>
 <link rel="shortcut icon" href="../../img/logoopendata.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,14 +77,14 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px; margin-right:40px">
   <!-- Header (edited) -->
   <div class="w3-container paddingtop" id="showcase">
-    <h2><b> Data Kesehatan </b></h2>
+    <h2><b> Data Perekonomian </b></h2>
   </div>
 
   <!-- Navigasi -->
   <div class="w3-row-padding">
     <div class="w3-row">
       <a href="javascript:void(0)" onclick="openCity(event, 'T');">
-        <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Topik Kesehatan</div>
+        <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Topik Perekonomian</div>
       </a>
       <a href="javascript:void(0)" onclick="openCity(event, 'KD');">
         <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding w3-border-black">Kumpulan Data</div>
@@ -100,30 +100,18 @@ body {font-size:16px;}
     <!-- Navigasi Kumpulan Data -->
     <div id="KD" class="w3-container city w3-medium">
       <br>
-      <h3 style="color:#575f8a;">Data Jumlah Rumah Sakit</h3>
-      {{-- <h3 id="dataa" style="color:#575f8a;"></h3>
-      <script>
-        var rs1 = document.getElementById("dataa");
-        var rs1ref = firebase.database().ref("Rumah_Sakit");
-        var jmlhrs1 = 0;
-        rs1ref.on("value", function(snapshott){
-        snapshott.forEach(function(rs3){
-          jmlhrs1++;
-          rs1.innerHTML= " <b>Data Jumlah Rumah Sakit";
-        });
-        });
-      </script> --}}
+      <h3 style="color:#575f8a;"><b>Data Pasar</b></h3>
       <!-- Isi Data -->
       <p class="w3-margin-left w3-justify">
-        Data ini berisi tentang jumlah data Rumah Sakit yang ada di Kota Depok.<br>
+        Data ini berisi tentang jumlah data Pasar yang ada di Kota Depok.<br>
         <div class="w3-container">
           <h4>Overview</h4>
           <table class="w3-table w3-bordered">
             <tr>
-              <th>Nama Rumah Sakit</th>
+              <th>Nama Pasar</th>
               <th>Alamat</th>
             </tr>
-            <tbody id="rs">
+            <tbody id="psr">
 
             </tbody>
           </table>
@@ -131,13 +119,13 @@ body {font-size:16px;}
         <br>
       </p>
       <script>
-      var blog = firebase.database().ref("Rumah_Sakit");
+      var blog = firebase.database().ref("Pasar");
       blog.once("value").then(function(snapshot){
         snapshot.forEach(function(childSnapshot){
-          var nama = childSnapshot.val().Nama_RS;
+          var nama = childSnapshot.val().Nama_Tempat;
           var alamat = childSnapshot.val().Alamat;
 
-          $("#rs").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
+          $("#psr").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
         });
       });
       </script>
@@ -145,7 +133,7 @@ body {font-size:16px;}
         <li class="w3-padding-16">
           <button class="w3-right w3-btn w3-round-large blue w3-text-white">Unduh</button>
           <img src="../../img/csv.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
-          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Rumah Sakit di Kota Depok</span></b></a><br>
+          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Pasar di Kota Depok</span></b></a><br>
           <span>Unduh untuk melihat data selengkapnya</span>
         </li>
       </ul>
@@ -168,46 +156,44 @@ body {font-size:16px;}
           datattl.innerHTML=total + " <b>Data Ditemukan</b>";
         }
       </script>
+
+
       <!-- Isi Data -->
       <h6 id="data" style="margin:0px"></h6>
       <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-      <a href="/detail/RumahSakit">
+      <a href="/detail/Mall">
         <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
       </a>
 
       <script>
-        var rs = document.getElementById("data");
-        var rsref = firebase.database().ref("Rumah_Sakit");
-        var jmlhrs = 0;
-        rsref.on("value", function(snapshot){
-        snapshot.forEach(function(rs2){
-          jmlhrs++;
+        var mall = document.getElementById("data");
+        var mallref = firebase.database().ref("Mall");
+        var jmlhmall = 0;
+        mallref.on("value", function(snapshot){
+        snapshot.forEach(function(mall2){
+          jmlhmall++;
           jmlh();
-          rs.innerHTML= " <b>Data Rumah Sakit";
+          mall.innerHTML=  " <b>Data Mall";
         });
         });
-      </script>
-
-      <script>
-
       </script>
 
       <hr>
       <h6 id="data2" style="margin:0px"></h6>
       <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-      <a href="/detail/Apotek">
+      <a href="/detail/Pasar">
         <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
       </a>
 
       <script>
-        var ap = document.getElementById("data2");
-        var apref = firebase.database().ref("Apotek");
-        var jmlhap = 0;
-        apref.on("value", function(snapshot2){
-        snapshot2.forEach(function(ap2){
-          jmlhap++;
+        var psr = document.getElementById("data2");
+        var psrref = firebase.database().ref("Pasar");
+        var jmlhpsr = 0;
+        psrref.on("value", function(snapshot2){
+        snapshot2.forEach(function(psr2){
+          jmlhpsr++;
           jmlh();
-          ap.innerHTML=  " <b>Data Apotek";
+          psr.innerHTML=  " <b>Data Pasar";
         });
         });
       </script>
@@ -215,19 +201,19 @@ body {font-size:16px;}
       <hr>
       <h6 id="data3" style="margin:0px"></h6>
       <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-      <a href="/detail/Klinik">
+      <a href="/detail/Supermarket">
         <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
       </a>
 
       <script>
-        var k = document.getElementById("data3");
-        var kref = firebase.database().ref("Klinik");
-        var jmlhk = 0;
-        kref.on("value", function(snapshot3){
-        snapshot3.forEach(function(k2){
-          jmlhk++;
+        var spr = document.getElementById("data3");
+        var sprref = firebase.database().ref("Supermarket");
+        var jmlhspr = 0;
+        sprref.on("value", function(snapshot3){
+        snapshot3.forEach(function(spr3){
+          jmlhpsr++;
           jmlh();
-          k.innerHTML=  " <b>Data Klinik";
+          spr.innerHTML=  " <b>Data Supermarket";
         });
         });
       </script>

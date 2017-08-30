@@ -73,7 +73,7 @@
     <hr>
     <h6 id="data2" style="margin:0px"></h6>
     <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail">
+    <a href="/detail/Apotek">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
@@ -93,7 +93,7 @@
     <hr>
     <h6 id="data3" style="margin:0px"></h6>
     <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail">
+    <a href="/detail/Klinik">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
@@ -352,6 +352,3 @@
     captionText.innerHTML = element.alt;
   }
   </script>
-
-</body>
-</html>

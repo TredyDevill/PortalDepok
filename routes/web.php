@@ -65,9 +65,29 @@ Route::get('/topik/fasilitas', function(){
   return view('topik/fasilitas');
 } );
 
+
 Route::get('/detail/RumahSakit', function(){
   return view('detail/detRS');
 } );
+Route::get('/detail/Apotek', function(){
+  return view('detail/detApotek');
+} );
+Route::get('/detail/Klinik', function(){
+  return view('detail/detKlinik');
+} );
+Route::get('/detail/Perpustakaan', function(){
+  return view('detail/detPerpus');
+} );
+Route::get('/detail/Mall', function(){
+  return view('detail/detMall');
+} );
+Route::get('/detail/Pasar', function(){
+  return view('detail/detPasar');
+} );
+Route::get('/detail/Supermarket', function(){
+  return view('detail/detSupermarket');
+} );
+
 
 Route::get('/hidepok/maps', function(){
   return view('hidepok/maps');

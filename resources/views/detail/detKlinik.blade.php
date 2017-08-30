@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Detail Rumah Sakit</title>
+<title>Detail Klinik</title>
 <link rel="shortcut icon" href="../../img/logoopendata.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,30 +100,18 @@ body {font-size:16px;}
     <!-- Navigasi Kumpulan Data -->
     <div id="KD" class="w3-container city w3-medium">
       <br>
-      <h3 style="color:#575f8a;">Data Jumlah Rumah Sakit</h3>
-      {{-- <h3 id="dataa" style="color:#575f8a;"></h3>
-      <script>
-        var rs1 = document.getElementById("dataa");
-        var rs1ref = firebase.database().ref("Rumah_Sakit");
-        var jmlhrs1 = 0;
-        rs1ref.on("value", function(snapshott){
-        snapshott.forEach(function(rs3){
-          jmlhrs1++;
-          rs1.innerHTML= " <b>Data Jumlah Rumah Sakit";
-        });
-        });
-      </script> --}}
+      <h3 style="color:#575f8a;"><b>Data Klinik</b></h3>
       <!-- Isi Data -->
       <p class="w3-margin-left w3-justify">
-        Data ini berisi tentang jumlah data Rumah Sakit yang ada di Kota Depok.<br>
+        Data ini berisi tentang jumlah data Klinik yang ada di Kota Depok.<br>
         <div class="w3-container">
           <h4>Overview</h4>
           <table class="w3-table w3-bordered">
             <tr>
-              <th>Nama Rumah Sakit</th>
+              <th>Nama Klinik</th>
               <th>Alamat</th>
             </tr>
-            <tbody id="rs">
+            <tbody id="klinik">
 
             </tbody>
           </table>
@@ -131,13 +119,13 @@ body {font-size:16px;}
         <br>
       </p>
       <script>
-      var blog = firebase.database().ref("Rumah_Sakit");
+      var blog = firebase.database().ref("Klinik");
       blog.once("value").then(function(snapshot){
         snapshot.forEach(function(childSnapshot){
-          var nama = childSnapshot.val().Nama_RS;
+          var nama = childSnapshot.val().Nama_Klinik;
           var alamat = childSnapshot.val().Alamat;
 
-          $("#rs").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
+          $("#klinik").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
         });
       });
       </script>
@@ -145,7 +133,7 @@ body {font-size:16px;}
         <li class="w3-padding-16">
           <button class="w3-right w3-btn w3-round-large blue w3-text-white">Unduh</button>
           <img src="../../img/csv.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
-          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Rumah Sakit di Kota Depok</span></b></a><br>
+          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Klinik di Kota Depok</span></b></a><br>
           <span>Unduh untuk melihat data selengkapnya</span>
         </li>
       </ul>

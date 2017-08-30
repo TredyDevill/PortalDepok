@@ -49,7 +49,7 @@
     <!-- Isi Data -->
     <h6 id="data" style="margin:0px"></h6>
     <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail">
+    <a href="/detail/Mall">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
@@ -69,7 +69,7 @@
     <hr>
     <h6 id="data2" style="margin:0px"></h6>
     <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail">
+    <a href="/detail/Pasar">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
@@ -89,7 +89,7 @@
     <hr>
     <h6 id="data3" style="margin:0px"></h6>
     <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail">
+    <a href="/detail/Supermarket">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-<title>Olahraga</title>
+<title>Data Jumlah Tempat Olahraga Kota Depok</title>
 <link rel="shortcut icon" href="../../img/logoopendata.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -35,9 +36,22 @@ body {font-size:16px;}
   }
 }
 </style>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBMMk6zvo74RBODnnOIl0F5EitIxhMZsMY",
+    authDomain: "hi-depok2-39129.firebaseapp.com",
+    databaseURL: "https://hi-depok2-39129.firebaseio.com",
+    projectId: "hi-depok2-39129",
+    storageBucket: "hi-depok2-39129.appspot.com",
+    messagingSenderId: "657283490375"
+  };
+  firebase.initializeApp(config);
+</script>
 <body>
 
-<!-- Sidebar/menu -->
+<!-- Sidebar/menu (edited) -->
 <nav class="w3-sidebar w3-collapse w3-text-white w3-top w3-medium w3-padding" style="z-index:3;width:300px;font-weight:bold;background-color:#575f8a" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:12px"><i class="fa fa-close"></i>Close Menu</a>
   <div class="w3-container">
@@ -45,9 +59,9 @@ body {font-size:16px;}
   </div><br>
   <div class="w3-bar-block">
     <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="/data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data</a>
-    <a href="/topik" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Topik</a>
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
+    <a href="/data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Data</a>
+    <a href="/topik" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Topik</a>
+    <a href="/tentang" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
   </div>
 </nav>
 
@@ -60,63 +74,169 @@ body {font-size:16px;}
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-  <!-- Header -->
+<div class="w3-main" style="margin-left:340px; margin-right:40px">
+  <!-- Header (edited) -->
   <div class="w3-container paddingtop" id="showcase">
-    <h2><b>Topik - Olahraga</b></h2>
+    <h2><b> Data Olahraga </b></h2>
   </div>
 
   <!-- Navigasi -->
   <div class="w3-row-padding">
-  <div class="w3-row">
-    <a href="javascript:void(0)" onclick="openCity(event, 'KD');">
-      <div class="w3-third tablink w3-hover-light-grey w3-bottombar w3-padding w3-border-black">Kumpulan Data</div>
-    </a>
-    <a href="javascript:void(0)" onclick="openCity(event, 'AT');">
-      <div class="w3-third tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Aktivitas Terbaru</div>
-    </a>
-    <a href="javascript:void(0)" onclick="openCity(event, 'SD');">
-      <div class="w3-third tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Sering Diunduh</div>
-    </a>
-  </div>
-
-  <!-- Navigasi Kumpulan Data -->
-  <div id="KD" class="w3-container city w3-medium">
-    <br>
-    <div class="w3-container w3-right">
-      <input class="w3-input w3-border" type="text" placeholder="Search...">
+    <div class="w3-row">
+      <a href="javascript:void(0)" onclick="openCity(event, 'T');">
+        <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Topik Kesehatan</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openCity(event, 'KD');">
+        <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding w3-border-black">Kumpulan Data</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openCity(event, 'AT');">
+        <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Aktivitas Terbaru</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openCity(event, 'SD');">
+        <div class="w3-quarter tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Sering Diunduh</div>
+      </a>
     </div>
-    <form class="w3-container w3-right" action="">
-      <select class="w3-select" name="option" style="width:200px">
-        <option value="" disabled selected>Order by</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
-      <button class="w3-btn blue w3-text-white">Go</button>
-    </form>
-    <h4 style="color:#575f8a; margin:6px"><b>40 Data Ditemukan</b></h4><br><br>
-    <!-- Isi Data -->
-    <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail/Olahraga">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
 
-    <!-- Pagination -->
-    <br><br><br>
-    <div class="w3-center">
-      <div class="w3-bar">
-        <a href="#" class="w3-button">&laquo;</a>
-        <a href="#" class="w3-button w3-gray">1</a>
-        <a href="#" class="w3-button">2</a>
-        <a href="#" class="w3-button">3</a>
-        <a href="#" class="w3-button">4</a>
-        <a href="#" class="w3-button">&raquo;</a>
+    <!-- Navigasi Kumpulan Data -->
+    <div id="KD" class="w3-container city w3-medium">
+      <br>
+      <h3 style="color:#575f8a;"><b>Data Jumlah Tempat Olahraga</b></h3>
+      <!-- Isi Data -->
+      <p class="w3-margin-left w3-justify">
+        Data ini berisi tentang jumlah data tempat olahraga yang ada di Kota Depok.<br>
+        <div class="w3-container">
+          <h4>Overview</h4>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Nama Tempat Olahraga</th>
+              <th>Alamat</th>
+            </tr>
+            <tbody id="to">
+
+            </tbody>
+          </table>
+        </div>
+        <br>
+      </p>
+      <script>
+      var blog = firebase.database().ref("Olahraga");
+      blog.once("value").then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+          var nama = childSnapshot.val().Nama_Tempat;
+          var alamat = childSnapshot.val().Alamat;
+
+          $("#to").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
+        });
+      });
+      </script>
+      <ul class="w3-ul">
+        <li class="w3-padding-16">
+          <button class="w3-right w3-btn w3-round-large blue w3-text-white">Unduh</button>
+          <img src="../../img/csv.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Rumah Sakit di Kota Depok</span></b></a><br>
+          <span>Unduh untuk melihat data selengkapnya</span>
+        </li>
+      </ul>
+
+    </div>
+    <!-- Navigasi Kumpulan Data (finish) copy semua aja-->
+
+    <!-- Navigasi Topik (edited) copy semua aja-->
+    <div id="T" class="w3-container city w3-medium" style="display:none">
+      <br>
+      <div class="w3-container w3-right">
+        <input class="w3-input w3-border" type="text" placeholder="Search...">
+      </div>
+      <h4 id="datattl" style="color:#575f8a; margin:6px"></h4><br><br>
+      <script>
+        var datattl = document.getElementById("datattl");
+        var total = 0;
+        function jmlh() {
+          total++;
+          datattl.innerHTML=total + " <b>Data Ditemukan</b>";
+        }
+      </script>
+      <!-- Isi Data -->
+      <h6 id="data" style="margin:0px"></h6>
+      <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
+      <a href="/detail/RumahSakit">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+
+      <script>
+        var rs = document.getElementById("data");
+        var rsref = firebase.database().ref("Rumah_Sakit");
+        var jmlhrs = 0;
+        rsref.on("value", function(snapshot){
+        snapshot.forEach(function(rs2){
+          jmlhrs++;
+          jmlh();
+          rs.innerHTML= " <b>Data Rumah Sakit";
+        });
+        });
+      </script>
+
+      <script>
+
+      </script>
+
+      <hr>
+      <h6 id="data2" style="margin:0px"></h6>
+      <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
+      <a href="/detail">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+
+      <script>
+        var ap = document.getElementById("data2");
+        var apref = firebase.database().ref("Apotek");
+        var jmlhap = 0;
+        apref.on("value", function(snapshot2){
+        snapshot2.forEach(function(ap2){
+          jmlhap++;
+          jmlh();
+          ap.innerHTML=  " <b>Data Apotek";
+        });
+        });
+      </script>
+
+      <hr>
+      <h6 id="data3" style="margin:0px"></h6>
+      <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
+      <a href="/detail">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+
+      <script>
+        var k = document.getElementById("data3");
+        var kref = firebase.database().ref("Klinik");
+        var jmlhk = 0;
+        kref.on("value", function(snapshot3){
+        snapshot3.forEach(function(k2){
+          jmlhk++;
+          jmlh();
+          k.innerHTML=  " <b>Data Klinik";
+        });
+        });
+      </script>
+<!-- finish topik -->
+
+
+      <!-- Pagination -->
+      <br>
+      <div class="w3-center">
+        <div class="w3-bar">
+          <a href="#" class="w3-button">&laquo;</a>
+          <a href="#" class="w3-button w3-gray">1</a>
+          <a href="#" class="w3-button">2</a>
+          <a href="#" class="w3-button">3</a>
+          <a href="#" class="w3-button">4</a>
+          <a href="#" class="w3-button">&raquo;</a>
+        </div>
       </div>
     </div>
+    <!-- Navigasi Topik (finish) -->
   </div>
-  <!-- Navigasi Kumpulan Data (finish) -->
 
   <!-- Navigasi Aktifitas Terbaru -->
   <div id="AT" class="w3-container city w3-medium" style="display:none">
@@ -172,7 +292,7 @@ body {font-size:16px;}
   <!-- Navigasi Aktifitas Terbaru (finish) -->
 
   <!-- Navigasi Sering Diunduh -->
-  <div id="SD" class="w3-container city w3-medium" style="display:none">
+  <div id="SD" class="w3-container city w3-medium w3-padding" style="display:none">
     <br>
     <div class="w3-container w3-right">
       <input class="w3-input w3-border" type="text" placeholder="Search...">
@@ -198,7 +318,10 @@ body {font-size:16px;}
             <div class="w3-container">
               <p>Dataset ini berisi daftar Sekolah Rawan Banjir Provinsi DKI Jakarta variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan....</p>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">CSV</button>
+            <!-- ini di copy jg untuk ngelink ke dataset -->
+            <a href="../dataset/data1.php" style="text-decoration:none">
+              <button class="w3-button w3-block w3-dark-grey w3-hover-amber">CSV</button>
+            </a>
           </div>
         </div>
         <div class="w3-third w3-container">
@@ -209,7 +332,9 @@ body {font-size:16px;}
             <div class="w3-container">
               <p>Dataset ini berisi daftar Sekolah Rawan Banjir Provinsi DKI Jakarta variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan....</p>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">CSV</button>
+            <a href="../dataset/data1.php" style="text-decoration:none">
+              <button class="w3-button w3-block w3-dark-grey w3-hover-amber">CSV</button>
+            </a>
           </div>
         </div>
         <div class="w3-third w3-container">
@@ -220,7 +345,9 @@ body {font-size:16px;}
             <div class="w3-container">
               <p>Dataset ini berisi daftar Sekolah Rawan Banjir Provinsi DKI Jakarta variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan....</p>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">CSV</button>
+            <a href="../dataset/data1.php" style="text-decoration:none">
+              <button class="w3-button w3-block w3-dark-grey w3-hover-amber">CSV</button>
+            </a>
           </div>
         </div>
       </div>
@@ -235,7 +362,9 @@ body {font-size:16px;}
             <div class="w3-container">
               <p>Dataset ini berisi daftar Sekolah Rawan Banjir Provinsi DKI Jakarta variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan....</p>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">CSV</button>
+            <a href="../dataset/data1.php" style="text-decoration:none">
+              <button class="w3-button w3-block w3-dark-grey w3-hover-amber">CSV</button>
+            </a>
           </div>
         </div>
         <div class="w3-third w3-container">
@@ -246,7 +375,9 @@ body {font-size:16px;}
             <div class="w3-container">
               <p>Dataset ini berisi daftar Sekolah Rawan Banjir Provinsi DKI Jakarta variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan....</p>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">CSV</button>
+            <a href="../dataset/data1.php" style="text-decoration:none">
+              <button class="w3-button w3-block w3-dark-grey w3-hover-amber">CSV</button>
+            </a>
           </div>
         </div>
         <div class="w3-third w3-container">
@@ -257,7 +388,9 @@ body {font-size:16px;}
             <div class="w3-container">
               <p>Dataset ini berisi daftar Sekolah Rawan Banjir Provinsi DKI Jakarta variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan....</p>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">CSV</button>
+            <a href="../dataset/data1.php" style="text-decoration:none">
+              <button class="w3-button w3-block w3-dark-grey w3-hover-amber">CSV</button>
+            </a>
           </div>
         </div>
       </div>
@@ -265,15 +398,6 @@ body {font-size:16px;}
   </div>
   </div>
   <!-- Navigasi Sering Diunduh (finish) -->
-
-  <!-- Modal for full size img on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
 
 <!-- End page content -->
 </div>

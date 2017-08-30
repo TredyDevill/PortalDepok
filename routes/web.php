@@ -69,6 +69,42 @@ Route::get('/detail/RumahSakit', function(){
   return view('detail/detRS');
 } );
 
+Route::get('/detail/PantiAsuhan', function(){
+  return view('detail/pantiasuhan');
+} );
+
+Route::get('/detail/Kuliner', function(){
+  return view('detail/kuliner');
+} );
+
+Route::get('/detail/Wisata', function(){
+  return view('detail/wisata');
+} );
+
+Route::get('/detail/Olahraga', function(){
+  return view('detail/olahraga1');
+} );
+
+Route::get('/detail/Angkot', function(){
+  return view('detail/angkot');
+} );
+
+Route::get('/detail/JasaPengiriman', function(){
+  return view('detail/jasapengiriman');
+} );
+
+Route::get('/detail/TempatIbadah', function(){
+  return view('detail/tempatibadah');
+} );
+
+Route::get('/detail/TPU', function(){
+  return view('detail/tpu');
+} );
+
+Route::get('/detail/RTH', function(){
+  return view('detail/rth');
+} );
+
 Route::get('/hidepok/maps', function(){
   return view('hidepok/maps');
 } );

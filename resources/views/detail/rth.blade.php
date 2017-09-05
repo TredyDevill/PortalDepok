@@ -1,18 +1,18 @@
 @extends('layouts.Detail')
 
-<title>Detail Supermarket</title>
+<title>Detail Ruang Terbuka Hijau</title>
 
 @section('content')
   <!-- Header (edited) -->
   <div class="w3-container paddingtop" id="showcase">
-    <h2><b> Data Perekonomian </b></h2>
+    <h2><b> Data Fasilitas Umum </b></h2>
   </div>
 
   <!-- Navigasi -->
   <div class="w3-row-padding">
     <div class="w3-row">
       <a href="javascript:void(0)" onclick="openCity(event, 'T');">
-        <div class="w3-half tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Topik Perekonomian</div>
+        <div class="w3-half tablink w3-hover-light-grey w3-bottombar w3-padding" style="border-bottom:6px solid rgb(255, 255, 255)">Topik Fasilitas Umum</div>
       </a>
       <a href="javascript:void(0)" onclick="openCity(event, 'KD');">
         <div class="w3-half tablink w3-hover-light-grey w3-bottombar w3-padding w3-border-black">Kumpulan Data</div>
@@ -25,15 +25,17 @@
       <h3 id="dataa" style="color:#575f8a;"></h3>
       <!-- Isi Data -->
       <p class="w3-margin-left w3-justify">
-        Data ini berisi tentang jumlah data Supermarket yang ada di Kota Depok.<br>
+        Data ini berisi tentang jumlah data ruang terbuka hijau yang ada di Kota Depok.<br>
         <div class="w3-container">
           <h4>Overview</h4>
           <table class="w3-table w3-bordered">
+            <thead>
             <tr>
-              <th>Nama Supermarket</th>
+              <th>Nama RTH</th>
               <th>Alamat</th>
             </tr>
-            <tbody id="psr">
+            </thead>
+            <tbody id="rth">
 
             </tbody>
           </table>
@@ -41,13 +43,13 @@
         <br>
       </p>
       <script>
-      var blog = firebase.database().ref("Supermarket");
+      var blog = firebase.database().ref("Pertamanan");
       blog.once("value").then(function(snapshot){
         snapshot.forEach(function(childSnapshot){
           var nama = childSnapshot.val().Nama;
           var alamat = childSnapshot.val().Alamat;
 
-          $("#psr").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
+          $("#rth").append('<tr><td>' + nama + '</td><td>' + alamat + '</td></tr>');
         });
       });
       </script>
@@ -55,7 +57,7 @@
         <li class="w3-padding-16">
           <button class="w3-right w3-btn w3-round-large blue w3-text-white">Unduh</button>
           <img src="../../img/csv.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
-          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Supermarket di Kota Depok</span></b></a><br>
+          <b><span class="w3-large w3-hover-text-blue">Data Jumlah Ruang Terbuka Hijau di Kota Depok</span></b></a><br>
           <span>Unduh untuk melihat data selengkapnya</span>
         </li>
       </ul>
@@ -78,66 +80,64 @@
           datattl.innerHTML=total + " <b>Data Ditemukan</b>";
         }
       </script>
-
-
       <!-- Isi Data -->
       <h6 id="data" style="margin:0px"></h6>
-    <p class="w3-justify">Dataset ini berisi informasi terkait Mall yang ada di Depok, seperti : Nama, No telp, Alamat, dan Koordinat</p>
-    <a href="/detail/Mall">
+    <p class="w3-justify">Dataset ini berisi daftar Tempat Ibadah di Kota Depok antara lain : Nama, Alamat, Kategori, Kecamatan dan Koordinat Tempat Ibadah</p>
+    <a href="/detail/TempatIbadah">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
     <script>
-      var mall = document.getElementById("data");
-      var mallref = firebase.database().ref("Mall");
-      var jmlhmall = 0;
-      mallref.on("value", function(snapshot){
-      snapshot.forEach(function(mall2){
-        jmlhmall++;
+      var ti = document.getElementById("data");
+      var tiref = firebase.database().ref("Tempat_Ibadah");
+      var jmlhti = 0;
+      tiref.on("value", function(snapshot){
+      snapshot.forEach(function(ti2){
+        jmlhti++;
         jmlh();
-        mall.innerHTML=  " <b>Data Mall";
+        ti.innerHTML=  " <b>Data Tempat Ibadah";
       });
       });
     </script>
 
     <hr>
-    <h6 id="data2" style="margin:0px"></h6>
-    <p class="w3-justify">Data ini berisi informasi terkait Pasar yang ada di Depok, seperti : Nama, No telp, Alamat, Deskripsi, Jam Operasional dan Koordinat</p>
-    <a href="/detail/Pasar">
+    <p><h6 id="data2" style="margin:0px"></h6></p>
+    <p class="w3-justify">Data ini berisi tentang jumlah TPU yang ada di Kota Depok antara lain : Nama TPU, Alamat dan Koordinat TPU</p>
+    <a href="/detail/TPU">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
     <script>
-      var psr = document.getElementById("data2");
-      var psrref = firebase.database().ref("Pasar");
-      var jmlhpsr = 0;
-      psrref.on("value", function(snapshot2){
-      snapshot2.forEach(function(psr2){
-        jmlhpsr++;
+      var tpu = document.getElementById("data2");
+      var tpuref = firebase.database().ref("TPU");
+      var jmlhtpu = 0;
+      tpuref.on("value", function(snapshot2){
+      snapshot2.forEach(function(tpu2){
+        jmlhtpu++;
         jmlh();
-        psr.innerHTML=  " <b>Data Pasar";
+        tpu.innerHTML= " <b>Data TPU";
       });
       });
     </script>
 
     <hr>
     <h6 id="data3" style="margin:0px"></h6>
-    <p class="w3-justify">Data ini berisikan mengenai informasi supermarket yang ada di Depok, seperti : Nama, No telp, Alamat, Jam Operasional, Website dan Koordinat</p>
-    <a href="/detail/Supermarket">
+    <p class="w3-justify">Data ini berisikan informasi Ruang Terbuka Hijau yang berada di Kota Depok, informasi terkait antara lain : Nama, Alamat, Jam Operasional dan Koordinat RTH tersebut</p>
+    <a href="/detail/RTH">
       <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
     </a>
 
     <script>
-      var spr = document.getElementById("data3");
-      var spr1 = document.getElementById("dataa");
-      var sprref = firebase.database().ref("Supermarket");
-      var jmlhspr = 0;
-      sprref.on("value", function(snapshot3){
-      snapshot3.forEach(function(spr3){
-        jmlhspr++;
+      var tmn = document.getElementById("data3");
+      var tmn1 = document.getElementById("dataa");
+      var tmnref = firebase.database().ref("Pertamanan");
+      var jmlhtmn = 0;
+      tmnref.on("value", function(snapshot3){
+      snapshot3.forEach(function(tmn3){
+        jmlhtmn++;
         jmlh();
-        spr.innerHTML=  " <b>Data Supermarket";
-        spr1.innerHTML=  jmlhspr + " <b>Data Jumlah Supermarket";
+        tmn.innerHTML= " <b>Data Ruang Terbuka Hijau";
+        tmn1.innerHTML= jmlhtmn + " <b>Data Jumlah Ruang Terbuka Hijau";
       });
       });
     </script>

@@ -80,6 +80,7 @@ body {font-size:16px;}
 </head>
 <body>
   <div id="app">
+        @include('layouts.navbar')
           @yield('content')
     </div>
 </body>

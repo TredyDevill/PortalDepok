@@ -303,18 +303,15 @@ body, html {
 
 <div class="w3-row w3-center" style="background-color: #f1e99d!important;">
   <div class="w3-content" style="max-width:800px;">
-    <div class="w3-quarter w3-section">
+    <div class="w3-third w3-section">
     <img src="{{URL::asset('/img/logodpk.png')}}" width="200px" height="75px" style="padding-top:1.5em">
     </div>
-  <div class="w3-quarter w3-section">
-    <img src="{{URL::asset('/img/logodsc.png')}}" width="180px" height="100px">
-  </div>
-  <div class="w3-quarter w3-section">
-    <img src="{{URL::asset('/img/logohidepok.png')}}" width="100px" height="100px">
-  </div>
-  <div class="w3-quarter w3-section">
-    <img src="{{URL::asset('/img/logodepoktik.png')}}" width="160px" height="85px" style="padding-top:1em">
-  </div>
+    <div class="w3-third w3-section">
+      <img src="{{URL::asset('/img/logohidepok.png')}}" width="100px" height="100px">
+    </div>
+    <div class="w3-third w3-section">
+      <img src="{{URL::asset('/img/depokfriendly.png')}}" width="160px" height="85px" style="padding-top:1em">
+    </div>
   </div>
 </div>
 

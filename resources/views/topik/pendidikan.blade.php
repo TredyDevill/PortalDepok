@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.topik')
 <title> Pendidikan</title>
 
 @section('content')
@@ -26,7 +26,7 @@
   <div id="KD" class="w3-container city w3-medium">
     <br>
     <div class="w3-container w3-right">
-      <input class="w3-input w3-border" type="text" placeholder="Search...">
+      <input class="search w3-border" type="text" placeholder="Search...">
     </div>
     <form class="w3-container w3-right" action="">
       <select class="w3-select" name="option" style="width:200px">
@@ -39,83 +39,34 @@
     </form>
     <p><h4 id="datattl" style="color:#575f8a; margin:6px;"></h4><br><br></p>
 
-    <script>
-      var datattl = document.getElementById("datattl");
-      var total = 0;
-      function jmlh() {
-        total++;
-        datattl.innerHTML=total + " <b>Data Pendidikan";
-      }
-    </script>
+    
 
     <!-- Isi Data -->
-    <p><h6 id="data" style="margin:0px"></h6></p>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail/Perpustakaan">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-    <script>
-      var perpus = document.getElementById("data");
-      var perpusref = firebase.database().ref("Perpustakaan");
-      var jmlhperpus = 0;
-      perpusref.on("value", function(snapshot){
-      snapshot.forEach(function(perpus2){
-        jmlhperpus++;
-        jmlh();
-        perpus.innerHTML=  " <b>Data Perpustakaan";
-      });
-      });
-    </script>
+    <ul class="list">
+    <li>
+      <h6 class="name" id="data" style="margin:0px"><b>Data Perpustakaan</b></h6>
+      <p class="w3-justify">Dataset ini berisi Informasi terkait Pepustakaan seperti : Nama, Alamat, Jam Operasional dan Koordinat</p>
+      <a href="/detail/Perpustakaan">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
+    </ul>
 
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    {{-- <hr>
-    <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a> --}}
-
-    <!-- Pagination -->
-    <br><br><br>
+  <!-- Pagination -->
+    <br>
     <div class="w3-center">
       <div class="w3-bar">
-        <a href="#" class="w3-button">&laquo;</a>
-        <a href="#" class="w3-button w3-gray">1</a>
-        <a href="#" class="w3-button">2</a>
-        <a href="#" class="w3-button">3</a>
-        <a href="#" class="w3-button">4</a>
-        <a href="#" class="w3-button">&raquo;</a>
+      <ul class="pagination"></ul>
       </div>
     </div>
+  <script type="text/javascript">
+    var options = { 
+      valueNames: [ 'name' ],
+      page: 3,
+      pagination: true
+    };
+    var userList = new List('KD', options);
+  </script>
   </div>
   <!-- Navigasi Kumpulan Data (finish) -->
 
@@ -281,6 +232,25 @@
 
 <!-- W3.CSS Container -->
 <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Supported by TiregDev © 2017</p></div>
+
+<script>
+var datattl = document.getElementById("datattl");
+var total = 0;
+function jmlh() {
+  total++;
+  datattl.innerHTML=total + " <b>Data Pendidikan";
+}
+
+var perpus = document.getElementById("data");
+var perpusref = firebase.database().ref("Perpustakaan");
+var jmlhperpus = 0;
+perpusref.on("value", function(snapshot){
+  snapshot.forEach(function(perpus2){
+    jmlhperpus++;
+    jmlh();
+  });
+});
+</script>
   @endsection
 
   <!-- Tabs -->

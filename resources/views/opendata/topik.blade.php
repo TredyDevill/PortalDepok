@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
+
 <title>Topik</title>
-<link rel="shortcut icon" href="../img/logoopendata.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-.paddingtop {
-  margin-top: 30px;
-  margin-bottom:  10px;
-}
-.blue {
-  background-color :#575f8a;
-}
-.bg-bluemain {
-  background-color: rgba(87, 95, 138, 0.35);
-}
-@media only screen and (max-width: 1000px) {
-  .paddingtop {
-    margin-top: 80px;
-  }
-}
-</style>
-<body>
+
+@section('content')
+
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-text-white w3-top w3-medium w3-padding" style="z-index:3;width:300px;font-weight:bold;background-color:#575f8a" id="mySidebar"><br>
@@ -224,6 +200,4 @@ body {font-size:16px;}
     captionText.innerHTML = element.alt;
   }
   </script>
-
-</body>
-</html>
+ @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.topik')
 
 <title>Fasilitas Umum</title>
 
@@ -25,16 +25,9 @@
   <!-- Navigasi Kumpulan Data -->
   <div id="KD" class="w3-container city w3-medium">
     <br>
-    {{-- <div class="w3-container w3-right">
-      <input class="w3-input w3-border" type="text" placeholder="Search...">
-    </div> --}}
-
-              <div class="search_box pull-right">
-                <form action='{{url('/tempatibadah')}}' method="post">
-                  <input type="text" placeholder="search" name="search_data">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </form>
-              </div>
+   <div class="w3-container w3-right">
+      <input class="search w3-border" type="text" placeholder="Search...">
+    </div>
     <form class="w3-container w3-right" action="">
       <select class="w3-select" name="option" style="width:200px">
         <option value="" disabled selected>Order by</option>
@@ -46,108 +39,50 @@
     </form>
     <h4 id="datattl" style="color:#575f8a; margin:6px"><b></b></h4><br><br>
 
-    <script>
-      var datattl = document.getElementById("datattl");
-      var total = 0;
-      function jmlh() {
-        total++;
-        datattl.innerHTML=total + " Data Fasilitas Umum";
-      }
-    </script>
-
     <!-- Isi Data -->
-    <h6 id="data" style="margin:0px"></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <script>
-      var ti = document.getElementById("data");
-      var tiref = firebase.database().ref("Tempat_Ibadah");
-      var jmlhti = 0;
-      tiref.on("value", function(snapshot){
-      snapshot.forEach(function(ti2){
-        jmlhti++;
-        jmlh();
-        ti.innerHTML=  " <b>Data Tempat Ibadah";
-      });
-      });
-    </script>
+    <ul class="list">
+    <li>
+      <h6 class="name" id="data" style="margin:0px"><b>Data Tempat Ibadah</b></h6>
+      <p class="w3-justify">Dataset ini berisi daftar Tempat Ibadah di Kota Depok antara lain : Nama, Alamat, Kategori, Kecamatan dan Koordinat Tempat Ibadah</p>
+      <a href="/detail/TempatIbadah">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
 
     <hr>
-    <p><h6 id="data2" style="margin:0px"></h6></p>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <script>
-      var tpu = document.getElementById("data2");
-      var tpuref = firebase.database().ref("TPU");
-      var jmlhtpu = 0;
-      tpuref.on("value", function(snapshot2){
-      snapshot2.forEach(function(tpu2){
-        jmlhtpu++;
-        jmlh();
-        tpu.innerHTML= " <b>Data TPU";
-      });
-      });
-    </script>
+    <li>
+      <h6 class="name" id="data2" style="margin:0px"><b>Data TPU</b></h6>
+      <p class="w3-justify">Data ini berisi tentang jumlah TPU yang ada di Kota Depok antara lain : Nama TPU, Alamat dan Koordinat TPU</p>
+      <a href="/detail/TPU">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
 
     <hr>
-    <h6 id="data3" style="margin:0px"></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <script>
-      var tmn = document.getElementById("data3");
-      var tmnref = firebase.database().ref("Pertamanan");
-      var jmlhtmn = 0;
-      tmnref.on("value", function(snapshot3){
-      snapshot3.forEach(function(tmn3){
-        jmlhtmn++;
-        jmlh();
-        tmn.innerHTML= " <b>Data Ruang Terbuka Hijau";
-      });
-      });
-    </script>
-
-    {{-- <hr>
-    <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a> --}}
+    <li>
+      <h6 class="name" id="data3" style="margin:0px"><b>Data Ruang Terbuka Hijau</b></h6>
+      <p class="w3-justify">Data ini berisikan informasi Ruang Terbuka Hijau yang berada di Kota Depok, informasi terkait antara lain : Nama, Alamat, Jam Operasional dan Koordinat RTH tersebut</p>
+      <a href="/detail/RTH">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
+    </ul>
 
     <!-- Pagination -->
-    <br><br><br>
-    {{-- <div class="w3-center">
+    <br>
+    <div class="w3-center">
       <div class="w3-bar">
-        <a href="#" class="w3-button">&laquo;</a>
-        <a href="#" class="w3-button w3-gray">1</a>
-        <a href="#" class="w3-button">2</a>
-        <a href="#" class="w3-button">3</a>
-        <a href="#" class="w3-button">4</a>
-        <a href="#" class="w3-button">&raquo;</a>
+      <ul class="pagination"></ul>
       </div>
-    </div> --}}
+    </div>
+    <script type="text/javascript">
+    var options = { 
+      valueNames: [ 'name' ],
+      page: 3,
+      pagination: true
+    };
+    var userList = new List('KD', options);
+  </script>
   </div>
   <!-- Navigasi Kumpulan Data (finish) -->
 
@@ -313,6 +248,46 @@
 
 <!-- W3.CSS Container -->
 <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Supported by TiregDev © 2017</p></div>
+
+
+    <script>
+      var datattl = document.getElementById("datattl");
+      var total = 0;
+      function jmlh() {
+        total++;
+        datattl.innerHTML=total + " Data Fasilitas Umum";
+      }
+
+      var ti = document.getElementById("data");
+      var tiref = firebase.database().ref("Tempat_Ibadah");
+      var jmlhti = 0;
+      tiref.on("value", function(snapshot){
+      snapshot.forEach(function(ti2){
+        jmlhti++;
+        jmlh();
+      });
+      });
+
+      var tpu = document.getElementById("data2");
+      var tpuref = firebase.database().ref("TPU");
+      var jmlhtpu = 0;
+      tpuref.on("value", function(snapshot2){
+      snapshot2.forEach(function(tpu2){
+        jmlhtpu++;
+        jmlh();
+      });
+      });
+
+      var tmn = document.getElementById("data3");
+      var tmnref = firebase.database().ref("Pertamanan");
+      var jmlhtmn = 0;
+      tmnref.on("value", function(snapshot3){
+      snapshot3.forEach(function(tmn3){
+        jmlhtmn++;
+        jmlh();
+      });
+      });
+    </script>
 @endsection
   <!-- Tabs -->
   <script>

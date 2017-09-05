@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.topik')
 
 <title>Perekonomian</title>
 
@@ -26,7 +26,7 @@
   <div id="KD" class="w3-container city w3-medium">
     <br>
     <div class="w3-container w3-right">
-      <input class="w3-input w3-border" type="text" placeholder="Search...">
+      <input class="search w3-border" type="text" placeholder="Search...">
     </div>
     <form class="w3-container w3-right" action="">
       <select class="w3-select" name="option" style="width:200px">
@@ -38,88 +38,51 @@
       <button class="w3-btn blue w3-text-white">Go</button>
     </form>
     <h4 id="datattl" style="color:#575f8a; margin:6px"></h4><br><br>
-    <script>
-      var datattl = document.getElementById("datattl");
-      var total = 0;
-      function jmlh() {
-        total++;
-        datattl.innerHTML=total + " Data Perekonomian";
-      }
-    </script>
+    
     <!-- Isi Data -->
-    <h6 id="data" style="margin:0px"></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <a href="/detail/Mall">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <script>
-      var mall = document.getElementById("data");
-      var mallref = firebase.database().ref("Mall");
-      var jmlhmall = 0;
-      mallref.on("value", function(snapshot){
-      snapshot.forEach(function(mall2){
-        jmlhmall++;
-        jmlh();
-        mall.innerHTML=  " <b>Data Mall";
-      });
-      });
-    </script>
+    <ul class="list">
+    <li>
+      <h6 class="name" id="data" style="margin:0px"><b>Data Mall</b></h6>
+      <p class="w3-justify">Dataset ini berisi informasi terkait Mall yang ada di Depok, seperti : Nama, No telp, Alamat, dan Koordinat</p>
+      <a href="/detail/Mall">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
 
     <hr>
-    <h6 id="data2" style="margin:0px"></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <a href="/detail/Pasar">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
-
-    <script>
-      var psr = document.getElementById("data2");
-      var psrref = firebase.database().ref("Pasar");
-      var jmlhpsr = 0;
-      psrref.on("value", function(snapshot2){
-      snapshot2.forEach(function(psr2){
-        jmlhpsr++;
-        jmlh();
-        psr.innerHTML=  " <b>Data Pasar";
-      });
-      });
-    </script>
+    <li>
+      <h6 class="name" id="data2" style="margin:0px"><b>Data Pasar</b></h6>
+      <p class="w3-justify">Data ini berisi informasi terkait Pasar yang ada di Depok, seperti : Nama, No telp, Alamat, Deskripsi, Jam Operasional dan Koordinat</p>
+      <a href="/detail/Pasar">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
 
     <hr>
-    <h6 id="data3" style="margin:0px"></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <a href="/detail/Supermarket">
-      <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-    </a>
+    <li>
+      <h6 class="name" id="data3" style="margin:0px"><b>Data Supermarket</b></h6>
+      <p class="w3-justify">Data ini berisikan mengenai informasi supermarket yang ada di Depok, seperti : Nama, No telp, Alamat, Jam Operasional, Website dan Koordinat</p>
+      <a href="/detail/Supermarket">
+        <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+      </a>
+    </li>
+    </ul>
 
-    <script>
-      var spr = document.getElementById("data3");
-      var sprref = firebase.database().ref("Supermarket");
-      var jmlhspr = 0;
-      sprref.on("value", function(snapshot3){
-      snapshot3.forEach(function(spr3){
-        jmlhpsr++;
-        jmlh();
-        spr.innerHTML=  " <b>Data Supermarket";
-      });
-      });
-    </script>
-
-
-
-    <!-- Pagination -->
-    <br><br><br>
-    {{-- <div class="w3-center">
+ <!-- Pagination -->
+    <br>
+    <div class="w3-center">
       <div class="w3-bar">
-        <a href="#" class="w3-button">&laquo;</a>
-        <a href="#" class="w3-button w3-gray">1</a>
-        <a href="#" class="w3-button">2</a>
-        <a href="#" class="w3-button">3</a>
-        <a href="#" class="w3-button">4</a>
-        <a href="#" class="w3-button">&raquo;</a>
+      <ul class="pagination"></ul>
       </div>
-    </div> --}}
+    </div>
+  <script type="text/javascript">
+    var options = { 
+      valueNames: [ 'name' ],
+      page: 3,
+      pagination: true
+    };
+    var userList = new List('KD', options);
+  </script>
   </div>
   <!-- Navigasi Kumpulan Data (finish) -->
 
@@ -285,6 +248,45 @@
 
 <!-- W3.CSS Container -->
 <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Supported by TiregDev © 2017</p></div>
+
+<script>
+var datattl = document.getElementById("datattl");
+var total = 0;
+function jmlh() {
+  total++;
+  datattl.innerHTML=total + " Data Perekonomian";
+}
+
+var mall = document.getElementById("data");
+var mallref = firebase.database().ref("Mall");
+var jmlhmall = 0;
+mallref.on("value", function(snapshot){
+  snapshot.forEach(function(mall2){
+    jmlhmall++;
+    jmlh();
+  });
+});
+
+var psr = document.getElementById("data2");
+var psrref = firebase.database().ref("Pasar");
+var jmlhpsr = 0;
+psrref.on("value", function(snapshot2){
+  snapshot2.forEach(function(psr2){
+    jmlhpsr++;
+    jmlh();
+  });
+});
+
+var spr = document.getElementById("data3");
+var sprref = firebase.database().ref("Supermarket");
+var jmlhspr = 0;
+sprref.on("value", function(snapshot3){
+  snapshot3.forEach(function(spr3){
+    jmlhpsr++;
+    jmlh();
+  });
+});
+</script>
 @endsection
   <!-- Tabs -->
   <script>

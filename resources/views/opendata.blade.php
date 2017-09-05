@@ -69,6 +69,9 @@ body, html {
   font-size: 40pt;
   text-align: right;
 }
+.nav_blue {
+  background-color:#575f8a;
+}
 .w3-bar {
     padding: 1em 2em;
  }
@@ -113,7 +116,7 @@ body, html {
     <div class="w3-bar-item w3-text-white" style="letter-spacing: 3px; font-size:15pt;padding:8px 12px;"><b>OPEN DATA</b></div>
     <div class="w3-right w3-hide-small" style="color:#575f8a">
       <a href="/data" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Data</a>
-      <a href="/topik" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Topik</a>
+      <a href="#topik" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Topik</a>
       <a href="/tentang" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
     </div>
   </div>
@@ -169,7 +172,7 @@ body, html {
 </div> -->
 
 <!-- Work Section -->
-<div class="w3-container w3-padding-48" id="work">
+<div class="w3-container w3-padding-48" id="topik">
   <h3 class="w3-center">TOPIK</h3>
   <p class="w3-center w3-large">Mengenai Unit Kerja Pemerintah dan Instansi serta Organisasi Kota Depok</p>
 
@@ -260,12 +263,12 @@ body, html {
   </div>
   </div>
 </div>
-
+<!-- 
   <div class="w3-row-padding w3-section w3-center">
     <a href="/topik">
       <button class="w3-btn w3-text-white w3-round-large w3-padding-large" style="background-color:#575f8a">Selengkapnya</button>
     </a>
-  </div>
+  </div> -->
 </div>
 
 
@@ -387,9 +390,9 @@ window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+        navbar.className = "w3-bar" + " w3-card-2" + " w3-text-white" + " w3-animate-top" + " nav_blue";
     } else {
-        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+        navbar.className = navbar.className.replace(" w3-card-2 w3-text-white w3-animate-top nav_blue", "");
     }
 }
 

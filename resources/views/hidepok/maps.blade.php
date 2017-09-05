@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Maps | Hi-Depok</title>
-<link rel="shortcut icon" href="{{ URL::asset('img/logoopendata.png') }}">
+<link rel="shortcut icon" href="{{ URL::asset('img/logo.png') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -105,52 +105,85 @@
 <!-- Navbar (sit on top) -->
 
 <div class="w3-top">
-  <div class="w3-bar w3-padding w3-cyan" id="myNavbar">
+  <div class="w3-bar" id="myNavbar">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <div class="w3-bar-item" style="letter-spacing: 5px; font-size:15pt;">
-      <img src="{{ URL::asset('img/logoopendata.png') }}" style="width:50px; height:50px;margin-left:0.2em">
-      <div class="f_bold w3-display-left w3-text-white" style="font-size:17pt;margin-left:4.2em">HI-DEPOK</div>
+    <div class="w3-bar-item w3-padding-16 w3-border w3-cyan" style="border-radius: 0px 25px 25px 0px;padding-right:2em">
+      <a href="/"><img src="{{ URL::asset('img/logo.png') }}" style="width:50px; height:50px;"></a>
     </div>
-    <div class="w3-right w3-hide-small w3-display-right" style="margin-right:3em;letter-spacing:1px">
-      <div class="w3-dropdown-click">
+    <div class="w3-right w3-hide-small w3-display-right" style="margin-right:0.5em;letter-spacing:1px">
+      <div class="w3-bar-item">
         <button onclick="dropdown()" class="w3-btn w3-circle w3-dark-gray w3-text-white">=</button>
+        <button class="w3-btn w3-circle w3-dark-gray w3-text-white">+</button>
       </div>
-      <button class="w3-btn w3-circle w3-dark-gray w3-text-white">+</button>
     </div>
   </div>
 
   <!-- Data -->
-  <div id="dropdown1" class="w3-small w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom w3-padding" style="margin-left:1em;margin-top:1em; width:450px;">
-    <input class="w3-check" type="checkbox" value=""> Apotek <br>
-    <input class="w3-check" type="checkbox" value=""> Klinik <br>
-    <input class="w3-check" type="checkbox" value=""> Kuliner <br>
-    <input class="w3-check" type="checkbox" value=""> Mall <br>
-    <input class="w3-check" type="checkbox" value=""> Olahraga <br>
-    <input class="w3-check" type="checkbox" value=""> PDAM (Perusahaan Daerah Air Minum)<br>
-    <input class="w3-check" type="checkbox" value=""> Panti Asuhan <br>
-    <input class="w3-check" type="checkbox" value=""> Pasar <br>
-    <input class="w3-check" type="checkbox" value=""> Perpustakaan <br>
-    <input class="w3-check" type="checkbox" value=""> Taman <br>
-    <input class="w3-check" type="checkbox" value=""> Rumah Sakit <br>
-    <input class="w3-check" type="checkbox" value=""> SPBU (Stasiun Pengisian Bahan Bakar Umum)<br>
-    <input class="w3-check" type="checkbox" value="" id="sm" onclick="mart()"> Supermarket <br>
-    <input class="w3-check" type="checkbox" value="" id="tpud" onclick="tpu()"> TPU (Taman Pemakaman Umum) <br>
-    <input class="w3-check" type="checkbox" value=""> Tempat Ibadah <br>
-    <input class="w3-check" type="checkbox" value=""> Wisata <br>
-    <input class="w3-check" type="checkbox" value=""> Jasa Pengiriman <br>
-    <input class="w3-check" type="checkbox" value=""> Puskesmas <br>
-    <input class="w3-check" type="checkbox" value=""> Ambulance <br>
+  <div id="dropdown1" class="w3-small w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom" style="margin-left:1em;margin-top:1em; width:450px;height:600px;overflow:auto;white-space: nowrap;">
+    <div class="w3-bar">
+      <a id="myBtn" onclick="myFunc('Demo1')" href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom">Kesehatan</a>
+      <div id="Demo1" class="w3-hide w3-animate-left w3-light-gray" style="padding-bottom:1em; padding-left:2em">
+        <input class="w3-check" type="checkbox"> Apotek <br>
+        <input class="w3-check" type="checkbox"> Klinik <br>
+        <input class="w3-check" type="checkbox"> Rumah Sakit <br>
+        <input class="w3-check" type="checkbox"> Puskesmas <br>
+        <input class="w3-check" type="checkbox"> Ambulance <br>
+        <input class="w3-check" type="checkbox"> Panti Pijat <br>
+        <input class="w3-check" type="checkbox"> Bidan <br>
+      </div>
+      <a id="myBtn" onclick="myFunc('Demo2')" href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom">Sandang dan Pangan</a>
+      <div id="Demo2" class="w3-hide w3-animate-left w3-light-gray" style="padding-bottom:1em; padding-left:2em">
+        <input class="w3-check" type="checkbox"> Restoran <br>
+        <input class="w3-check" type="checkbox"> Pasar Tradisional <br>
+        <input class="w3-check" type="checkbox"> Pasar Modern <br>
+        <input class="w3-check" type="checkbox"> UMKM <br>
+      </div>
+      <a id="myBtn" onclick="myFunc('Demo3')" href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom">Sosial</a>
+      <div id="Demo3" class="w3-hide w3-animate-left w3-light-gray" style="padding-bottom:1em; padding-left:2em">
+        <input class="w3-check" type="checkbox"> Panti Asuhan <br>
+      </div>
+      <a id="myBtn" onclick="myFunc('Demo4')" href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom">Wisata</a>
+      <div id="Demo4" class="w3-hide w3-animate-left w3-light-gray" style="padding-bottom:1em; padding-left:2em">
+        <input class="w3-check" type="checkbox"> Taman Publik <br>
+        <input class="w3-check" type="checkbox"> Tempat Wisata <br>
+      </div>
+      <a id="myBtn" onclick="myFunc('Demo5')" href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom">Umum</a>
+      <div id="Demo5" class="w3-hide w3-animate-left w3-light-gray" style="padding-bottom:1em; padding-left:2em">
+        <input class="w3-check" type="checkbox"> PLN <br>
+        <input class="w3-check" type="checkbox"> Tempat Ibadah <br>
+        <input class="w3-check" type="checkbox"> Pemadam Kebakaran <br>
+        <input class="w3-check" type="checkbox"> Pos Polisi <br>
+        <input class="w3-check" type="checkbox"> PAM <br>
+        <input class="w3-check" type="checkbox"> SPBU (Stasiun Pengisian Bahan Bakar Umum)<br>
+        <input class="w3-check" type="checkbox"> Pasar <br>
+        <input class="w3-check" type="checkbox" value="" id="tpud" onclick="tpu()"> TPU (Taman Pemakaman Umum) <br>
+        <input class="w3-check" type="checkbox"> Olahraga <br>
+        <input class="w3-check" type="checkbox"> PDAM (Perusahaan Daerah Air Minum)<br>
+        <input class="w3-check" type="checkbox"> Mall <br>
+        <input class="w3-check" type="checkbox"> Jasa Pengiriman <br>
+         <input class="w3-check" type="checkbox" value="" id="sm" onclick="mart()"> Supermarket <br>
+      </div>
+      <a id="myBtn" onclick="myFunc('Demo6')" href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom">Pendidikan</a>
+      <div id="Demo6" class="w3-hide w3-animate-left w3-light-gray" style="padding-bottom:1em; padding-left:2em">
+        <input class="w3-check" type="checkbox"> Perguruan Tinggi <br>
+        <input class="w3-check" type="checkbox"> SD (Sekolah Dasar) <br>
+        <input class="w3-check" type="checkbox"> SMP (Sekolah Menengah Pertama) <br>
+        <input class="w3-check" type="checkbox"> SMA (Sekolah Menengah Atas) <br>
+        <input class="w3-check" type="checkbox"> SMK (Sekolah Menengah Kejuruan) <br>
+        <input class="w3-check" type="checkbox"> Perpustakaan <br>
+      </div>
+    </div>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="/#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
-    <a href="/hidepok/maps.php" class="w3-bar-item w3-button">Maps</a>
-    <a href="/hidepok/blog.php" class="w3-bar-item w3-button">Blog</a>
-    <a href="/hidepok/event.php" class="w3-bar-item w3-button">Event</a>
-    <a href="/hidepok/maps" class="w3-bar-item w3-button">About</a>
+    <a href="#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
+    <a href="link/maps.php" class="w3-bar-item w3-button">Maps</a>
+    <a href="link/blog.php" class="w3-bar-item w3-button">Blog</a>
+    <a href="link/event.php" class="w3-bar-item w3-button">Event</a>
+    <a href="#about" class="w3-bar-item w3-button">About</a>
   </div>
 </div>
 
@@ -325,6 +358,31 @@ function dropdown() {
         x.className += " w3-show";
     } else {
         x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+<script>
+var openInbox = document.getElementById("myBtn");
+openInbox.click();
+
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+function myFunc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-border-bottom";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-border-bottom", "");
     }
 }
 </script>

@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Maps</title>
+<title>Maps | Hi-Depok</title>
+<link rel="shortcut icon" href="{{ URL::asset('img/logoopendata.png') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <style type="text/css">
+  @font-face {
+    font-family: "Brandon_Grotesque_bold";
+    src: url(../assets/font/Brandon_blk.otf);}
+
+  @font-face {
+    font-family: "Brandon_Grotesque_reg";
+    src: url(../assets/font/Brandon_reg.otf);}
+
+  .f_bold {
+    font-family: "Brandon_Grotesque_bold";
+  }
+
+  .f_reg {
+    font-family: "Brandon_Grotesque_reg";
+  }
   #map {
-        margin-top: 1.5em;
-        height: 544px;
+        position: absolute;
+        height: 100%;
         width: 100%;
         background-color: grey;
       }
@@ -79,33 +95,66 @@
         height:100%;
         background-color:#ffffff;
         }
+  .w3-check {
+    width: 15px;
+    height: 18px;
+  }
 </style>
 </head>
 <body>
 <!-- Navbar (sit on top) -->
 
 <div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
+  <div class="w3-bar w3-padding w3-cyan" id="myNavbar">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="/" class="w3-bar-item w3-button w3-hide-small w3-margin-top"><img src="{{ URL::asset('img/logodsc.png') }}" width="80px"></a>
-    <a href="/hidepok/event" class="w3-right w3-bar-item w3-button w3-hide-small w3-margin-top">EVENT</a>
-    <a href="/hidepok/blog" class="w3-right w3-bar-item w3-button w3-hide-small w3-margin-top">BLOG</a>
-    <a href="/hidepok/maps" class="w3-right w3-bar-item w3-button w3-hide-small w3-margin-top">MAPS</a>
-    <a href="/" class="w3-right w3-bar-item w3-button w3-hide-small w3-margin-top">HOME</a>
+    <div class="w3-bar-item" style="letter-spacing: 5px; font-size:15pt;">
+      <img src="{{ URL::asset('img/logoopendata.png') }}" style="width:50px; height:50px;margin-left:0.2em">
+      <div class="f_bold w3-display-left w3-text-white" style="font-size:17pt;margin-left:4.2em">HI-DEPOK</div>
+    </div>
+    <div class="w3-right w3-hide-small w3-display-right" style="margin-right:3em;letter-spacing:1px">
+      <div class="w3-dropdown-click">
+        <button onclick="dropdown()" class="w3-btn w3-circle w3-dark-gray w3-text-white">=</button>
+      </div>
+      <button class="w3-btn w3-circle w3-dark-gray w3-text-white">+</button>
+    </div>
+  </div>
+
+  <!-- Data -->
+  <div id="dropdown1" class="w3-small w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom w3-padding" style="margin-left:1em;margin-top:1em; width:450px;">
+    <input class="w3-check" type="checkbox" value=""> Apotek <br>
+    <input class="w3-check" type="checkbox" value=""> Klinik <br>
+    <input class="w3-check" type="checkbox" value=""> Kuliner <br>
+    <input class="w3-check" type="checkbox" value=""> Mall <br>
+    <input class="w3-check" type="checkbox" value=""> Olahraga <br>
+    <input class="w3-check" type="checkbox" value=""> PDAM (Perusahaan Daerah Air Minum)<br>
+    <input class="w3-check" type="checkbox" value=""> Panti Asuhan <br>
+    <input class="w3-check" type="checkbox" value=""> Pasar <br>
+    <input class="w3-check" type="checkbox" value=""> Perpustakaan <br>
+    <input class="w3-check" type="checkbox" value=""> Taman <br>
+    <input class="w3-check" type="checkbox" value=""> Rumah Sakit <br>
+    <input class="w3-check" type="checkbox" value=""> SPBU (Stasiun Pengisian Bahan Bakar Umum)<br>
+    <input class="w3-check" type="checkbox" value="" id="sm" onclick="mart()"> Supermarket <br>
+    <input class="w3-check" type="checkbox" value="" id="tpud" onclick="tpu()"> TPU (Taman Pemakaman Umum) <br>
+    <input class="w3-check" type="checkbox" value=""> Tempat Ibadah <br>
+    <input class="w3-check" type="checkbox" value=""> Wisata <br>
+    <input class="w3-check" type="checkbox" value=""> Jasa Pengiriman <br>
+    <input class="w3-check" type="checkbox" value=""> Puskesmas <br>
+    <input class="w3-check" type="checkbox" value=""> Ambulance <br>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-  <a href="/" class="w3-bar-item w3-button" onclick="toggleFunction()">BERANDA</a>
-    <a href="/hidepok/maps" class="w3-bar-item w3-button" onclick="toggleFunction()">MAPS</a>
-    <a href="/hidepok/blog" class="w3-bar-item w3-button" onclick="toggleFunction()">BLOG</a>
-    <a href="/hidepok/event" class="w3-bar-item w3-button" onclick="toggleFunction()">EVENT</a>
+    <a href="/#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
+    <a href="/hidepok/maps.php" class="w3-bar-item w3-button">Maps</a>
+    <a href="/hidepok/blog.php" class="w3-bar-item w3-button">Blog</a>
+    <a href="/hidepok/event.php" class="w3-bar-item w3-button">Event</a>
+    <a href="/hidepok/maps" class="w3-bar-item w3-button">About</a>
   </div>
 </div>
 
-<div class="w3-container">
+<!-- <div class="w3-container">
   <div class="w3-dropdown-hover w3-right" style="margin-top: 5%">
     <button class="w3-button w3-black">Find Something</button>
     <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
@@ -113,7 +162,7 @@
       <input type="checkbox" value="" id="tpud" onclick="tpu()">TPU</label>
     </div>
   </div>
-</div>
+</div> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAtFnKBeTAorl8rWoo066pk7pwimSpA-w "></script>
 <div id="map"></div>
 <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
@@ -267,6 +316,16 @@ $( "#loadingDiv" ).fadeOut(500, function() {
 // fadeOut complete. Remove the loading div
 $( "#loadingDiv" ).remove(); //makes page more lightweight
 });
+}
+</script>
+<script>
+function dropdown() {
+    var x = document.getElementById("dropdown1");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
 }
 </script>
 

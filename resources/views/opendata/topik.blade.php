@@ -15,7 +15,7 @@
     <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
     <a href="/data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data</a>
     <a href="/topik" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-gray">Topik</a>
-    <a href="/tentang" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
+    <a href=#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tentang</a>
   </div>
 </nav>
 

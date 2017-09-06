@@ -117,7 +117,7 @@ body, html {
     <div class="w3-right w3-hide-small" style="color:#575f8a">
       <a href="/data" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Data</a>
       <a href="#topik" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Topik</a>
-      <a href="/tentang" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
+      <a href="#" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
     </div>
   </div>
 

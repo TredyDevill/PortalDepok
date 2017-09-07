@@ -109,15 +109,16 @@ body, html {
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
+    <a href="/opendata">
     <div class="w3-bar-item" style="padding:0em">
       <img src="{{URL::asset('/img/logoopendata.png')}}" class="w3-circle" alt="Norway" style="width:50px">
-      {{-- <img src="images/logoopendata.png" class="w3-circle" alt="Norway" style="width:50px"> --}}
     </div>
     <div class="w3-bar-item w3-text-white" style="letter-spacing: 3px; font-size:15pt;padding:8px 12px;"><b>OPEN DATA</b></div>
+    </a>
     <div class="w3-right w3-hide-small" style="color:#575f8a">
       <a href="/data" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Data</a>
       <a href="#topik" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Topik</a>
-      <a href="#" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
+      <a href="/tentang" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
     </div>
   </div>
 
@@ -263,12 +264,12 @@ body, html {
   </div>
   </div>
 </div>
-<!-- 
+
   <div class="w3-row-padding w3-section w3-center">
     <a href="/topik">
       <button class="w3-btn w3-text-white w3-round-large w3-padding-large" style="background-color:#575f8a">Selengkapnya</button>
     </a>
-  </div> -->
+  </div>
 </div>
 
 
@@ -310,7 +311,7 @@ body, html {
     <img src="{{URL::asset('/img/logodpk.png')}}" width="200px" height="75px" style="padding-top:1.5em">
     </div>
     <div class="w3-third w3-section">
-      <img src="{{URL::asset('/img/logohidepok.png')}}" width="100px" height="100px">
+      <a href="/"><img src="{{URL::asset('/img/logohidepok.png')}}" width="100px" height="100px"></a>
     </div>
     <div class="w3-third w3-section">
       <img src="{{URL::asset('/img/depokfriendly.png')}}" width="160px" height="85px" style="padding-top:1em">

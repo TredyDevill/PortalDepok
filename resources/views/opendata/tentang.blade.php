@@ -1,150 +1,272 @@
-@extends('layouts.app')
-
+<!DOCTYPE html>
+<html>
 <title>Tentang</title>
+<link rel="shortcut icon" href="{{URL::asset('/img/logoopendata.png')}}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+</style>
+<style>
 
-@section('content')
+@font-face {
+  font-family: "Brandon_Grotesque_bold";
+  src: url(../assets/font/Brandon_blk.otf);}
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-text-black w3-top w3-medium" style="z-index:3;width:300px;font-weight:bold;background-color:#575f8a" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:12px"><i class="fa fa-close"></i>Close Menu</a>
-  <div class="w3-container">
-    <img src="{{URL::asset('/img/logoopendatafull.png')}}" alt="Norway" style="width:200px">
-  </div><br>
-  <div class="w3-bar-block">
-    <a href="/opendata" onclick="w3_close()" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Home</a> 
-    <a href="/data" onclick="w3_close()" class="w3-bar-item" style="text-decoration:none">Data</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-bar-item w3-hover-text-white w3-block w3-left-align " id="myBtn" style="text-decoration:none">
-      Topik <i class="fa fa-caret-down"></i>
+@font-face {
+  font-family: "Brandon_Grotesque_reg";
+  src: url(../assets/font/Brandon_reg.otf);}
+
+.f_bold {
+  font-family: "Brandon_Grotesque_bold";
+}
+
+.f_reg {
+  font-family: "Brandon_Grotesque_reg";
+}
+
+.centerpagination {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.nav_blue {
+  background-color: #575f8a;
+}
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+
+<body class="w3-light-grey">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
     </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="/topik/kesehatan" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Kesehatan</a>
-      <a href="/topik/pendidikan" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Pendidikan</a>
-      <a href="/topik/perekonomian" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Perekonomian</a>
-      <a href="/topik/sosial" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Sosial</a>
-      <a href="/topik/pariwisata" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Pariwisata</a>
-      <a href="/topik/olahraga" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Olahraga</a>
-      <a href="/topik/transportasi" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Transportasi</a>
-      <a href="/topik/fasilitasumum" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Fasilitas Umum</a>
-    </div> 
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-hover-text-white w3-leftbar w3-border-gray w3-text-white" style="text-decoration:none">Tentang</a>
-  </div>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-text-white w3-xlarge w3-padding" style="background-color:#575f8a">
-  <a href="javascript:void(0)" class="w3-button w3-margin-right w3-medium" onclick="w3_open()" style="background-color:#575f8a">☰</a>
-  <img class="w3-display-middle" src="../img/logoopendatafull.png" alt="Norway" style="width: 110px;height: 40px;">
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-  <!-- Header -->
-  <div class="w3-container paddingtop" id="showcase">
-    <h2><b>Data</b></h2>
-  </div>
-
-  <!-- Isi Data -->
-  <div class="w3-container city w3-medium">
-    <br>
-    <div class="w3-container w3-right">
-      <input class="w3-input w3-border" type="text" placeholder="Search...">
+    <a href="/opendata">
+    <div class="w3-bar-item" style="letter-spacing: 5px; font-size:15pt;">
+      <img src="{{URL::asset('/img/logoopendata.png')}}" style="width:50px; height:50px;margin-left:2em">
+      <div class="f_bold w3-text-white w3-display-left" style="font-size:17pt;margin-left:5.5em">OPEN DATA</div>
     </div>
-    <form class="w3-container w3-right" action="">
-      <select class="w3-select" name="option" style="width:200px">
-        <option value="" disabled selected>Order by</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
-      <button class="w3-btn blue w3-text-white">Go</button>
-    </form>
-    <h4 style="color:#575f8a; margin:6px"><b>1289 Data Ditemukan</b></h4><br><br>
-    <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+    </a>
+    <div class="w3-text-white w3-right w3-hide-small w3-display-right" style="margin-right:3em;letter-spacing:1px">
+      <a href="/data" class="w3-bar-item w3-button">Data</a>
+      <a href="/topik" class="w3-bar-item w3-button">Topik</a>
+      <a href="/tentang" class="w3-bar-item w3-button">Tentang</a>
+    </div>
+  </div>
 
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="/data" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
+    <a href="/topik" class="w3-bar-item w3-button">Topik</a>
+    <a href="/tentang" class="w3-bar-item w3-button">Tentang</a>
+  </div>
+</div>
 
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Sekolah Rawan Banjir</b></h6>
-    <p class="w3-justify">Dataset ini berisi daftar Sekolah Rawan Banjir Kota Depok variabel pada dataset ini : Nama Sekolah Alamat Kelurahan Kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SD Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisi tentang jumlah siswa dan guru SD Negeri Kota Depok. Variabel penjelas data ini adalah : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <hr>
-    <h6 style="margin:0px"><b>Data Jumlah Siswa dan Guru SMP Negeri Kota Depok</b></h6>
-    <p class="w3-justify">Data ini berisikan mengenai jumlah siswa dan guru SMP Negeri di Kota Depok variabel data ini berisikan : nama_sekolah kecamatan...</p>
-    <button class="w3-button w3-padding-small w3-text-white w3-small w3-border w3-round-large w3-amber">CSV</button>
-
-    <!-- Pagination -->
-    <br><br><br>
-    <div class="w3-center">
-      <div class="w3-bar">
-        <a href="#" class="w3-button">&laquo;</a>
-        <a href="#" class="w3-button w3-gray">1</a>
-        <a href="#" class="w3-button">2</a>
-        <a href="#" class="w3-button">3</a>
-        <a href="#" class="w3-button">4</a>
-        <a href="#" class="w3-button">&raquo;</a>
+<div style=" width:100%;">
+  <!-- Slideshow -->
+  <div class="mySlides w3-display-container w3-center">
+    <div style="background-color:#000; position:relative; width:100%;height:480px;">
+      <img src="{{URL::asset('/img/ui.jpg')}}" style="position:absolute; width:100%; height:480px; left:0; opacity:0.4">
+    </div>
+    <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
+      <div style="border:5px solid #fff;">
+        <label class="f_bold w3-xxxlarge label_header w3-text-white w3-padding"><b> Apa itu Depok Open Data? </b></label>
       </div>
     </div>
   </div>
-  <!-- Navigasi Kumpulan Data (finish) -->
-<!-- End page content -->
+  <div class="mySlides w3-display-container w3-center">
+    <div style="background-color:#000; position:relative; width:100%;height:480px;">
+      <img src="{{URL::asset('/img/depoklma.jpg')}}" style="position:absolute; width:100%; height:480px; left:0; opacity:0.4">
+    </div>
+    <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
+      <div style="border:5px solid #fff;">
+        <label class="f_bold w3-xxxlarge label_header w3-text-white w3-padding"><b> Apa itu Depok Open Data? </b></label>
+      </div>
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <div style="background-color:#000; position:relative; width:100%;height:480px;">
+      <img src="{{URL::asset('/img/defan.jpg')}}" style="position:absolute; width:100%; height:480px; left:0; opacity:0.4">
+    </div>
+    <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
+      <div style="border:5px solid #fff;">
+        <label class="f_bold w3-xxxlarge label_header w3-text-white w3-padding"><b> Apa itu Depok Open Data? </b></label>
+      </div>
+    </div>
+  </div>
+<!-- END w3-content -->
 </div>
 
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Supported by TiregDev © 2017</p></div>
+<div class="w3-container" style="background:#fff"> 
+  <div class="w3-content"> 
+    <div class="w3-row w3-content w3-padding-64" style="max-width:1100px">
+      <div class="w3-half w3-center" style="padding-right:3em">
+        <img class="bottom-img" src="{{URL::asset('/img/b3.png')}}" style="width:100%;">
+      </div>
+      <div class="w3-half w3-padding-16" style="padding-left:3em">
+        <h4 class="f_bold"><b>DEPOK OPEN DATA</b></h4>
+        <font class="w3-justify"> Merupakan Portal Data Terpadu Pemerintah Kota Depok yang menyajikan data-data dari seluruh Unit Kerja di Pemerintah dan Seluruh Instansi serta Organisasi Kota Depok. Depok Open Data menyediakan data dalam format yang mudah dicari, diakses serta digunakan kembali, dengan harapan publik/masyarakat pengguna portal dapat memanfaatkan data yang telah tersedia serta menciptakan inovasi dan peran serta dalam membangun kota Jakarta dan negara Indonesia menjadi lebih baik.</font>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- Tabs -->
-  <script>
-  function openCity(evt, cityName) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
+<!-- Contact Section -->
+<div class="w3-container w3-white w3-padding-32">
+  <h3 class="f_bold w3-center">CONTACT</h3>
+  <p class="w3-center w3-medium">Informasi lebih lengkap dapat menghubungi :</p>
+  <div class="w3-content" style="margin-top:64px; margin-bottom:5em">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Depok, Indonesia</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: (021) 7773610</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: opendata@depok.go.id</p>
+      <br>
+      <form action="">
+        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+        <p>
+          <button class="w3-button w3-black" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+      </form>
+  </div>
+</div>
+
+<div class="w3-row w3-center" style="background-color: #eee;">
+  <div class="w3-content" style="max-width:800px;">
+    <div class="w3-third w3-section">
+      <img src="{{URL::asset('/img/logodpk.png')}}" width="190px" height="60px" style="padding-top:1.5em">
+    </div>
+    <div class="w3-third  w3-section">
+      <img src="{{URL::asset('/img/logodsc.png')}}" width="140px" height="80px">
+    </div>
+    <div class="w3-third w3-section">
+      <img src="{{URL::asset('/img/logohidepok.png')}}" width="80px" height="80px">
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-dark-gray w3-padding w3-text-light-gray">
+  <div class="w3-row">
+    <div class="w3-third w3-container">
+      <div class="w3-xlarge w3-section" style="letter-spacing:8px">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+      </div>
+    </div>
+    <div class="w3-third w3-container"> 
+      <h3 style="letter-spacing:3px">HI-DEPOK</h3>
+    </div>
+    <div class="w3-third w3-container" style="padding:21px">
+      <a href="#home" class="w3-bar-item w3-hover-text-white" style="text-decoration:none" onclick="toggleFunction()">Home</a>
+      <a href="#download" class="w3-bar-item w3-hover-text-white" style="text-decoration:none;padding: 0em 1.7em;" onclick="toggleFunction()">Download</a>
+      <a href="#about" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">About</a>
+    </div>
+  </div>
+  <hr style="margin: 0em 6em;border-top: 1px solid rgba(238, 238, 238, 0.16);">
+  <div class="w3-row w3-small w3-padding">
+    <div class="w3-content" style="max-width:700px">
+      <div class="w3-third w3-container">
+        <h5>MAIL</h5>  
+        <p>humas@hidepok.id</p>
+      </div>
+      <div class="w3-third w3-container">
+        <h5>CALL</h5>  
+        <p>+62 811 222 333 11</p>
+      </div>
+      <div class="w3-third w3-container">
+        <h5>FIND US</h5>  
+        <p>Jalan Margonda No.54, Depok</p>
+      </div>
+    </div>
+  </div>
+  <hr style="margin: 0em 6em; border-top: 1px solid rgba(238, 238, 238, 0.16);">
+  <p>Supported by TiregDev © 2017</p>
+</footer>
+
+<script>
+// Toggle between hiding and showing blog replies/comments
+document.getElementById("myBtn").click();
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
     }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
-       tablinks[i].className = tablinks[i].className.replace(" w3-border-black", "");
+}
+
+</script>
+<script>
+  // Change style of navbar on scroll
+  window.onscroll = function() {myFunction()};
+  function myFunction() {
+  var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " nav_blue" + " w3-text-white";
+    } else {
+      navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top nav_blue w3-text-white", "");
+      }
+  }
+
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function toggleFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
     }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.firstElementChild.className += " w3-border-black";
-  }
-  </script>
-
-  <script>
-  // Script to open and close sidebar
-  function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
   }
 
-  function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
+  // Automatic Slideshow - change image every 4 seconds
+  var myIndex = 0;
+  carousel();
+
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000);    
   }
 
-  // Modal Image Gallery
-  function onClick(element) {
-    document.getElementById("img01").src = element.src;
-    document.getElementById("modal01").style.display = "block";
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = element.alt;
-  }
-  </script>
-@endsection
+</script>
+
+</body>
+</html>

@@ -20,7 +20,7 @@
       <a href="/topik/transportasi" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Transportasi</a>
       <a href="/topik/fasilitasumum" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Fasilitas Umum</a>
     </div> 
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
+    <a href="/tentang" onclick="w3_close()" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">Tentang</a>
   </div>
 </nav>
 

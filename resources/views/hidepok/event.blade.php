@@ -89,7 +89,7 @@ body {font-family: "Open Sans"}
   </div>
 </div>
 
-<div class="w3-content" style="max-width:1600px">
+<div style="width:100%; ">
 
   <!-- <header class="w3-container w3-center w3-padding-64 w3-white" style>
     <h1 class="f_bold w3-xxlarge"><b>BLOG</b></h1>

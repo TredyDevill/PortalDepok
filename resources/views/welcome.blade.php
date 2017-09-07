@@ -221,8 +221,7 @@
         </section>
 
         <!-- Page 3 (Blog) -->
-        <div style="background-color:#000; position:relative; width:100%;"></div>
-        <section style="background-image:url('img/bg1-01_rotate.png'); background-size: cover; background-position: center; background-repeat: no-repeat; position:absolute;opacity:0.4">
+        <section style="background-image:url('img/bg1-01_rotate.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="w3-container w3-padding-64">
               <h3 class="f_bold w3-center w3-text-white" style="letter-spacing:5px; margin-top:3.7em"><b>BLOG</b></h3>
               <p class="w3-center w3-text-white">Mari lihat apa yang terjadi pada Kota Depok</p><br>

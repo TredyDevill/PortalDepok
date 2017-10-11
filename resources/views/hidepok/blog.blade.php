@@ -33,19 +33,7 @@ body {font-family: "Open Sans"}
     text-align: center;
 }
 
-.pagination {
-    display: inline-block;
-}
 
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-}
 
 .pagination a.active {
     background-color: #4CAF50;
@@ -54,6 +42,9 @@ body {font-family: "Open Sans"}
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination li{
+    display: inline;
+}
 </style>
 
 <body class="w3-light-grey">
@@ -72,7 +63,7 @@ body {font-family: "Open Sans"}
       <a href="/" class="w3-bar-item w3-button">Download</a>
       <a href="/hidepok/maps" class="w3-bar-item w3-button">Maps</a>
       <a href="/hidepok/blog" class="w3-bar-item w3-button">Blog</a>
-      <a href="/opendata" class="w3-bar-item w3-button">OpenData</a>
+      <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
       <a href="/hidepok/event" class="w3-bar-item w3-button">Event</a>
       <a href="/" class="w3-bar-item w3-button">About</a>
     </div>
@@ -83,7 +74,7 @@ body {font-family: "Open Sans"}
     <a href="/" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
     <a href="/hidepok/maps.php" class="w3-bar-item w3-button">Maps</a>
     <a href="/hidepok/blog.php" class="w3-bar-item w3-button">Blog</a>
-    <a href="/opendata" class="w3-bar-item w3-button">OpenData</a>
+    <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
     <a href="/hidepok/event.php" class="w3-bar-item w3-button">Event</a>
     <a href="/" class="w3-bar-item w3-button">About</a>
   </div>
@@ -98,9 +89,10 @@ body {font-family: "Open Sans"}
   </header> -->
 
   <!-- Slideshow -->
+  @foreach($artikels as $artikel)
   <div class="mySlides w3-display-container w3-center">
     <div style="background-color:#000; position:relative; width:100%;height:650px;">
-      <img src="{{ URL::asset('img/slideblog_1.jpg') }}" style="position:absolute; width:100%; height:650px; left:0; opacity:0.4">
+      <img src="{{ asset ("storage/upload/iblogs/$artikel->image") }}" style="position:absolute; width:100%; height:650px; left:0; opacity:0.4">
     </div>
     <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
       <div style="border:5px solid #fff; margin-bottom:7px">
@@ -109,24 +101,11 @@ body {font-family: "Open Sans"}
       <p class="f_reg w3-text-white" style="margin:0;"> Mari lihat apa yang terjadi di Kota Depok </p>
     </div>
     <div class="w3-display-bottomleft w3-container w3-text-white w3-padding-32 w3-hide-small" style="left:2%">
-      <h3 class="f_reg w3-xxlarge"><b>Suasana Taman Balaikota Depok Terbaru</b></h3>
+      <h3 class="f_reg w3-xxlarge"><b><a href="/hidepok/blog/{{ $artikel->id_blog }}"> {{ $artikel->judul }}<a></b></h3>
     </div>
   </div>
-  <div class="mySlides w3-display-container w3-center">
-    <div style="background-color:#000; position:relative; width:100%;height:650px;">
-      <img src="{{ URL::asset('img/slideblog_2.jpg') }}" style="position:absolute; width:100%; height:650px; left:0; opacity:0.4">
-    </div>
-    <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
-      <div style="border:5px solid #fff; margin-bottom:7px">
-        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> BLOG </b></label>
-      </div>
-      <p class="f_reg w3-text-white" style="margin:0;"> Mari lihat apa yang terjadi di Kota Depok </p>
-    </div>
-    <div class="w3-display-bottomleft w3-container w3-text-white w3-padding-32 w3-hide-small" style="left:2%">
-      <h3 class="f_reg w3-xxlarge"><b>Membatik Merupakan Kegiatan Seru</b></h3>
-    </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center">
+  @endforeach
+<!--   <div class="mySlides w3-display-container w3-center">
     <div style="background-color:#000; position:relative; width:100%;height:650px;">
       <img src="{{ URL::asset('img/slideblog_3.jpg') }}" style="position:absolute; width:100%; height:650px; left:0; opacity:0.4">
     </div>
@@ -139,33 +118,35 @@ body {font-family: "Open Sans"}
     <div class="w3-display-bottomleft w3-container w3-text-white w3-padding-32 w3-hide-small" style="left:2%">
       <h3 class="f_reg w3-xxlarge"><b>Pemerintah Terjun Langsung Membantu Warga</b></h3>
     </div>
-  </div>
+  </div> -->
 
   <!-- Isi Blog -->
   <div class="w3-row w3-white w3-padding-48">
+
     <div class="w3-col l8 s12">
       <!-- Blog entry 1 & 2 -->
+      @foreach($blogs as $blog)
       <div class="w3-container black w3-padding-large w3-col 18 m12">
         <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
           <div class="w3-justify">
-            <img src="{{ URL::asset('img/blog5.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
-            <p><h3>Pelaksanaan Salat Iduladha di Masjid Balaikota Depok</h3></p>
-            <p class="w3-text-grey">Pemerintah Kota Depok mengadakan Sholat Idul Adha 1438 H tingkat Kota Depok di Masjid Balaikota Depok. Dihadiri oleh Walikota Depok, Dandim 0508/Depok, Kepala OPD, Camat, Lurah, dan Warga Depok, Jumat, (01/09/2017)...</p>
+            <img src="{{ asset ("storage/upload/iblogs/$blog->image") }}" style="width:100%;height:300px" class="w3-padding-16">
+            <p><h3>{{ $blog->judul }}</h3></p>
+            <!-- <p class="w3-text-grey">{{ $blog->isi }}</p> -->
           </div>
-          <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
+          <div class="w3-button w3-cyan w3-text-white" style="width:100%"><a href="/hidepok/blog/{{ $blog->id_blog }}"> Selengkapnya </a></div>
         </div>
-        <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
+<!--         <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
           <div class="w3-justify">
             <img src="{{ URL::asset('img/blog6.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
             <h3>Pasar Sukatani Akan Jadi Binaan Lembaga Pangan Internasional</h3>
             <p class="w3-text-grey">Kasubag TU Pasar Sukatani (kanan) saat berkunjung ke Kantor FAO ECTAD di Kementerian Pertanian RI, baru-baru ini. (Foto : Istimewa/Diskominfo) depok.go.id - Predikat Standar Nasional Indonesia (SNI) yang dimiliki Pasar...</p>
           </div>
           <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
-        </div>
+        </div> -->
       </div>
-
+      @endforeach
       <!-- Blog entry 3 & 4 -->
-      <div class="w3-container black w3-padding-large w3-col 18 m12">
+<!--       <div class="w3-container black w3-padding-large w3-col 18 m12">
         <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
           <div class="w3-justify">
             <img src="{{ URL::asset('img/blog8.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
@@ -182,15 +163,15 @@ body {font-family: "Open Sans"}
           </div>
           <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
         </div>
-      </div>
-
+      </div> -->
+  
       <!-- Pagination -->
-    <div class="centerpagination w3-margin-bottom w3-margin-top">
+<!--     <div class="centerpagination w3-margin-bottom w3-margin-top">
       <div class="pagination">
         <button class="w3-button w3-dark-gray w3-round-large" onclick="myFunction('demo1')" id="myBtn"><b>SEE MORE ARTICLES </b></button>
       </div>
-    </div>
-
+    </div> -->
+    {{$blogs->links()}}
 
     <!-- END BLOG ENTRIES -->
     </div>

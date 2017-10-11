@@ -72,7 +72,7 @@ body {font-family: "Open Sans"}
       <a href="/" class="w3-bar-item w3-button">Download</a>
       <a href="/hidepok/maps" class="w3-bar-item w3-button">Maps</a>
       <a href="/hidepok/blog" class="w3-bar-item w3-button">Blog</a>
-      <a href="/opendata" class="w3-bar-item w3-button">OpenData</a>
+      <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
       <a href="/hidepok/event" class="w3-bar-item w3-button">Event</a>
       <a href="/#about" class="w3-bar-item w3-button">About</a>
     </div>
@@ -83,20 +83,13 @@ body {font-family: "Open Sans"}
     <a href="/" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
     <a href="/hidepok/maps.php" class="w3-bar-item w3-button">Maps</a>
     <a href="/hidepok/blog.php" class="w3-bar-item w3-button">Blog</a>
-    <a href="/opendata" class="w3-bar-item w3-button">OpenData</a>
+    <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
     <a href="/hidepok/event.php" class="w3-bar-item w3-button">Event</a>
     <a href="/" class="w3-bar-item w3-button">About</a>
   </div>
 </div>
 
-<div style="width:100%; ">
-
-  <!-- <header class="w3-container w3-center w3-padding-64 w3-white" style>
-    <h1 class="f_bold w3-xxlarge"><b>BLOG</b></h1>
-    <h6>Mari lihat apa yang terjadi di Kota Depok</h6>
-    </div>
-  </header> -->
-
+<div class="w3-content" style="max-width:1600px">
   <!-- Slideshow -->
   <div class="mySlides w3-display-container w3-center">
     <div style="background-color:#000; position:relative; width:100%;height:650px;">
@@ -104,12 +97,12 @@ body {font-family: "Open Sans"}
     </div>
     <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
       <div style="border:5px solid #fff; margin-bottom:7px">
-        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> Event </b></label>
+        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> EVENT </b></label>
       </div>
-      <p class="f_reg w3-text-white" style="margin:0;"> Lihat acara yang seru di Kota Depok </p>
+      <p class="f_reg w3-text-white" style="margin:0;"> Lihat acara yang seru di Kota Depok</p>
     </div>
     <div class="w3-display-bottomleft w3-container w3-text-white w3-padding-32 w3-hide-small" style="left:2%">
-      <h3 class="f_reg w3-xxlarge"><b>Suasana Taman Balaikota Depok Terbaru</b></h3>
+      <h3 class="f_reg w3-xxlarge"><b>Suasana Taman Balaikota Depok Terbaru</b></h3>  
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
@@ -118,12 +111,12 @@ body {font-family: "Open Sans"}
     </div>
     <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
       <div style="border:5px solid #fff; margin-bottom:7px">
-        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> BLOG </b></label>
+        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> EVENT </b></label>
       </div>
       <p class="f_reg w3-text-white" style="margin:0;"> Lihat acara yang seru di Kota Depok </p>
     </div>
     <div class="w3-display-bottomleft w3-container w3-text-white w3-padding-32 w3-hide-small" style="left:2%">
-      <h3 class="f_reg w3-xxlarge"><b>Membatik Merupakan Kegiatan Seru</b></h3>
+      <h3 class="f_reg w3-xxlarge"><b>Membatik Merupakan Kegiatan Seru</b></h3> 
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
@@ -132,151 +125,67 @@ body {font-family: "Open Sans"}
     </div>
     <div class="w3-content w3-display-middle" style="white-space:nowrap; opacity:0.5">
       <div style="border:5px solid #fff; margin-bottom:7px">
-        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> BLOG </b></label>
+        <label class="f_bold w3-wide w3-xxxlarge label_header w3-text-white"><b> EVENT </b></label>
       </div>
       <p class="f_reg w3-text-white" style="margin:0;"> Lihat acara yang seru di Kota Depok </p>
     </div>
     <div class="w3-display-bottomleft w3-container w3-text-white w3-padding-32 w3-hide-small" style="left:2%">
-      <h3 class="f_reg w3-xxlarge"><b>Pemerintah Terjun Langsung Membantu Warga</b></h3>
-    </div>
-  </div>
-
-  <!-- Isi Blog -->
-  <div class="w3-row w3-white w3-padding-48">
-    <div class="w3-col l8 s12">
-      <!-- Blog entry 1 & 2 -->
-      <div class="w3-container black w3-padding-large w3-col 18 m12">
-        <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
-          <div class="w3-justify">
-            <img src="{{ URL::asset('img/blog5.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
-            <p><h3>Pelaksanaan Salat Iduladha di Masjid Balaikota Depok</h3></p>
-            <p class="w3-text-grey">Pemerintah Kota Depok mengadakan Sholat Idul Adha 1438 H tingkat Kota Depok di Masjid Balaikota Depok. Dihadiri oleh Walikota Depok, Dandim 0508/Depok, Kepala OPD, Camat, Lurah, dan Warga Depok, Jumat, (01/09/2017)...</p>
-          </div>
-          <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
-        </div>
-        <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
-          <div class="w3-justify">
-            <img src="{{ URL::asset('img/blog6.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
-            <h3>Pasar Sukatani Akan Jadi Binaan Lembaga Pangan Internasional</h3>
-            <p class="w3-text-grey">Kasubag TU Pasar Sukatani (kanan) saat berkunjung ke Kantor FAO ECTAD di Kementerian Pertanian RI, baru-baru ini. (Foto : Istimewa/Diskominfo) depok.go.id - Predikat Standar Nasional Indonesia (SNI) yang dimiliki Pasar...</p>
-          </div>
-          <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
-        </div>
-      </div>
-
-      <!-- Blog entry 3 & 4 -->
-      <div class="w3-container black w3-padding-large w3-col 18 m12">
-        <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
-          <div class="w3-justify">
-            <img src="{{ URL::asset('img/blog8.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
-            <p><h3>Pancoran Mas Perkuat Kualitas SDM RW Ramah Anak</h3></p>
-            <p>Camat Pancoran Mas, Utang Wardaya. (Foto : Nurul/Diskominfo) depok.go.id - Kecamatan Pancoran Mas saat ini sudah memiliki 5 RW Ramah Anak yang tersebar di 5 kelurahan. Untuk menguatkan keberadaan RW Ramah...</p>
-          </div>
-          <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
-        </div>
-        <div class="w3-container w3-white w3-padding-large w3-col 18 m6">
-          <div class="w3-justify">
-            <img src="{{ URL::asset('img/blog7.jpg') }}" style="width:100%;height:300px" class="w3-padding-16">
-            <h3>Bersaing di Tingkat Nasional, Depok Dibina DKPP Jabar</h3>
-            <p>Kota Depok yang telah sukses menggondol juara satu Lomba Cipta Menu (LCM) Beragam, Bergizi, Seimbang, dan Aman tingkat Provinsi Jawa Barat akan melaju pada tingkat nasional. Untuk menghadapi perhelatan akbar...</p>
-          </div>
-          <div class="w3-button w3-cyan w3-text-white" style="width:100%"> Selengkapnya </div>
-        </div>
-      </div>
-
-      <!-- Pagination -->
-    <div class="centerpagination w3-margin-bottom w3-margin-top">
-      <div class="pagination">
-        <button class="w3-button w3-dark-gray w3-round-large" onclick="myFunction('demo1')" id="myBtn"><b>SEE MORE ARTICLES </b></button>
-      </div>
-    </div>
-
-
-    <!-- END BLOG ENTRIES -->
-    </div>
-
-    <!-- About/Information menu -->
-    <div class="w3-col l4">
-
-      <!-- Posts -->
-      <div class="w3-white w3-margin" style="border:3px solid black">
-        <div class="w3-container w3-padding w3-white">
-          <h1>POPULAR POSTS</h1>
-        </div>
-        <ul class="w3-ul w3-hoverable w3-white">
-          <li class="w3-padding-16">
-            <span>Roadshow Sosialisasi Bahaya Narkoba dan HIV/AIDS</span>
-          </li>
-          <li class="w3-padding-16">
-            <span>Kelurahan Abadijaya Miliki 13 Katar Unit RW</span>
-          </li>
-          <li class="w3-padding-16">
-            <span>Sasar Pelajar, BNN Gencar Sosialisasi Bahaya Narkoba, HIV dan AIDS</span>
-          </li>
-          <li class="w3-padding-16">
-            <span>Satpol PP-Panwaslu Akan Tertibkan APK Pilgub Jabar</span>
-          </li>
-          <li class="w3-padding-16">
-            <span>DWP Diajak Sukseskan Program Pemkot Depok</span>
-          </li>
-          <li class="w3-padding-16">
-            <span>Bersaing di Tingkat Nasional, Depok Dibina DKPP Jabar </span>
-          </li>
-          <li class="w3-padding-16">
-            <span>Peringatan HUT DPRD Kota Depok Ke-18</span>
-          </li>
-          <li class="w3-padding-16">
-            <span>Pembukaan Masa Sidang Tahun Sidang 2017-2018 DPRD Kota Depok</span>
-          </li>
-        </ul>
-      </div>
-
-
-      <!-- Advertising -->
-      <div class="w3-white w3-margin" style="border:3px solid black">
-        <div class="w3-container w3-padding w3-white">
-          <h4>Advertise</h4>
-        </div>
-        <div class="w3-container w3-white">
-          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
-            <span class="w3-display-middle">Your AD Here</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Subscribe -->
-      <div class="w3-white w3-margin" style="border:3px solid black">
-        <div class="w3-container w3-padding w3-white">
-          <h4>Subscribe</h4>
-        </div>
-        <div class="w3-container w3-white">
-          <p>Enter your e-mail below and get notified on the latest blog posts.</p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
-          <p><button type="button" onclick="document.getElementById('subscribe').style.display='block'" class="w3-button w3-block w3-red">Subscribe</button></p>
-        </div>
-      </div>
-
-    <!-- END About/Intro Menu -->
-    </div>
-
-  <!-- END GRID -->
-  </div>
-
-<!-- END w3-content -->
-</div>
-
-<!-- Subscribe Modal -->
-<div id="subscribe" class="w3-modal w3-animate-opacity">
-  <div class="w3-modal-content" style="padding:32px">
-    <div class="w3-container w3-white">
-      <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-      <h2 class="w3-wide">SUBSCRIBE</h2>
-      <p>Join my mailing list to receive updates on the latest blog posts and other things.</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-      <button type="button" class="w3-button w3-block w3-padding-large w3-cyan w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Subscribe</button>
+      <h3 class="f_reg w3-xxlarge"><b>Pemerintah Terjun Langsung Membantu Warga</b></h3>    
     </div>
   </div>
 </div>
+
+<!-- Container (About Section) -->
+<div class="w3-container w3-white">
+  <div class="w3-content w3-padding-64">
+    <div class="w3-row w3-display-container">
+      <div class="w3-col m6 w3-center w3-padding-large">
+        <img src="{{ URL::asset('img/event1.jpg') }}" class="w3-round w3-image" alt="Event" width="300" height="233">
+      </div>
+      <!-- Hide this text on small devices -->
+      <div class="w3-col m6 sw3-padding-large w3-justify w3-display-right">
+        <p class="f_bold w3-xlarge">NEW EVENT : Depok Festival 2</p>
+        <p>Untuk memeriahkan HUT KE-19 KOTA DEPOK, Pemerintah kota depok bekerjasama dengan Karang Taruna dan PT. Kreatif Jakarta Indotama Dengan bangga mempersembahkan "DEPOK FESTIVAL 2" 20-21 Mei 2017, tutup jalan raya plenongan 5 Menit dari Walikota Depok...
+        </p>
+        <div class="w3-padding-16">
+        <button class="w3-btn w3-cyan w3-text-white"> Lihat Selengkapnya </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Section -->
+  <div class="w3-padding-32 w3-content" id="portfolio">
+    <h2 class="f_bold w3-text-grey">ALL EVENT</h2>
+
+    <!-- Grid for photos -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half">
+        <img src="{{ URL::asset('img/event1.jpg') }}" style="width:100%;padding: 2em 1em 0em 0em;">
+        <img src="{{ URL::asset('img/event2.jpg') }}" style="width:100%;padding: 2em 1em 0em 0em;">
+        <img src="{{ URL::asset('img/event3.png') }}" style="width:100%;padding: 2em 1em 0em 0em;">
+      </div>
+
+      <div class="w3-half">
+        <img src="{{ URL::asset('img/event4.jpg') }}" style="width:100%;padding: 2em 1em 0em 0em;">
+        <img src="{{ URL::asset('img/event1.jpg') }}" style="width:100%;padding: 2em 1em 0em 0em;">
+        <img src="{{ URL::asset('img/event2.jpg') }}" style="width:100%;padding: 2em 1em 0em 0em;">
+      </div>
+    <!-- End photo grid -->
+    </div>
+    <div class="w3-center w3-bar" style="padding:5em">
+      <a href="#" class="w3-button">&laquo;</a>
+      <a href="#" class="w3-btn w3-cyan w3-text-white">1</a>
+      <a href="#" class="w3-button">2</a>
+      <a href="#" class="w3-button">3</a>
+      <a href="#" class="w3-button">4</a>
+      <a href="#" class="w3-button">&raquo;</a>
+    </div>
+  <!-- End Portfolio Section -->
+  </div>
+
+  
 
 <!-- Footer -->
 <footer class="w3-center w3-dark-gray w3-padding w3-text-light-gray">
@@ -288,28 +197,28 @@ body {font-family: "Open Sans"}
         <i class="fa fa-instagram w3-hover-opacity"></i>
       </div>
     </div>
-    <div class="w3-third w3-container">
+    <div class="w3-third w3-container"> 
       <h3 style="letter-spacing:3px">HI-DEPOK</h3>
     </div>
     <div class="w3-third w3-container" style="padding:21px">
       <a href="/" class="w3-bar-item w3-hover-text-white" style="text-decoration:none" onclick="toggleFunction()">Home</a>
       <a href="/#download" class="w3-bar-item w3-hover-text-white" style="text-decoration:none;padding: 0em 1.7em;" onclick="toggleFunction()">Download</a>
-      <a href="/hidepok/blog" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">About</a>
+      <a href="/#about" class="w3-bar-item w3-hover-text-white" style="text-decoration:none">About</a>
     </div>
   </div>
   <hr style="margin: 0em 6em;border-top: 1px solid rgba(238, 238, 238, 0.16);">
   <div class="w3-row w3-small w3-padding">
     <div class="w3-content" style="max-width:700px">
       <div class="w3-third w3-container">
-        <h5>MAIL</h5>
+        <h5>MAIL</h5>  
         <p>humas@hidepok.id</p>
       </div>
       <div class="w3-third w3-container">
-        <h5>CALL</h5>
+        <h5>CALL</h5>  
         <p>+62 811 222 333 11</p>
       </div>
       <div class="w3-third w3-container">
-        <h5>FIND US</h5>
+        <h5>FIND US</h5>  
         <p>Jalan Margonda No.54, Depok</p>
       </div>
     </div>
@@ -325,7 +234,7 @@ function myFunction(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
-    } else {
+    } else { 
         x.className = x.className.replace(" w3-show", "");
     }
 }
@@ -361,12 +270,12 @@ function myFunction(id) {
     var i;
     var x = document.getElementsByClassName("mySlides");
     for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+      x[i].style.display = "none";  
     }
     myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 4000);
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000);    
   }
 </script>
 

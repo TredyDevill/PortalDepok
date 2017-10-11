@@ -130,14 +130,16 @@
           <i class="fa fa-bars"></i>
         </a>
         <div class="w3-bar-item" style="letter-spacing: 5px; font-size:15pt">
+        <a href="/">
           <img src="{{ URL::asset('img/minilogo.png') }}" style="width:50px; height:50px">
           <div class="f_bold w3-display-left" style="font-size:17pt ;margin-left:5em">HI-DEPOK</div>
+        </a>
         </div>
         <div class=" w3-right w3-hide-small w3-display-right" style="margin-right:3em;letter-spacing:1px">
           <a href="#download" class="w3-bar-item w3-button">Download</a>
           <a href="/hidepok/maps" class="w3-bar-item w3-button">Maps</a>
           <a href="/hidepok/blog" class="w3-bar-item w3-button">Blog</a>
-          <a href="/opendata" class="w3-bar-item w3-button">OpenData</a>
+          <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
           <a href="/hidepok/event" class="w3-bar-item w3-button">Event</a>
           <a href="#about" class="w3-bar-item w3-button">About</a>
         </div>
@@ -147,7 +149,7 @@
         <a href="#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
         <a href="/hidepok/maps" class="w3-bar-item w3-button">Maps</a>
         <a href="/hidepok/blog." class="w3-bar-item w3-button">Blog</a>
-        <a href="/opendata" class="w3-bar-item w3-button">OpenData</a>
+        <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
         <a href="/hidepok/event" class="w3-bar-item w3-button">Event</a>
         <a href="#about" class="w3-bar-item w3-button">About</a>
       </div>

@@ -30,6 +30,6 @@ class MapsController extends Controller
 	    $jasa_pengirimans = DB::table('jasa_pengirimans')->get();
 	    $kecamatans = DB::table('kecamatans')->get();
 
-	    return view('/hidepok/maps', ['pdams' => $pdams, 'pasars' => $pasars, 'kuliners' => $kuliners, 'kelurahans' => $kelurahans, 'apoteks' => $apoteks, 'kliniks' => $kliniks, 'rss' => $rss, 'puskesmass' => $puskesmass, 'bidans' => $bidans, 'supermarkets' => $supermarkets, 'ukms' => $ukms, 'tamans' => $tamans, 'tempat_wisatas' => $tempat_wisatas, 'tempat_ibadahs' => $tempat_ibadahs, 'spbus' => $spbus, 'tpus' => $tpus, 'olahragas' => $olahragas, 'malls' => $malls, 'jasa_pengirimans' => $jasa_pengirimans, 'kecamatans' => $kecamatans]);
+	    return view('/maps', ['pdams' => $pdams, 'pasars' => $pasars, 'kuliners' => $kuliners, 'kelurahans' => $kelurahans, 'apoteks' => $apoteks, 'kliniks' => $kliniks, 'rss' => $rss, 'puskesmass' => $puskesmass, 'bidans' => $bidans, 'supermarkets' => $supermarkets, 'ukms' => $ukms, 'tamans' => $tamans, 'tempat_wisatas' => $tempat_wisatas, 'tempat_ibadahs' => $tempat_ibadahs, 'spbus' => $spbus, 'tpus' => $tpus, 'olahragas' => $olahragas, 'malls' => $malls, 'jasa_pengirimans' => $jasa_pengirimans, 'kecamatans' => $kecamatans]);
 	}
 }

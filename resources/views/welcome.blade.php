@@ -136,22 +136,22 @@
         </a>
         </div>
         <div class=" w3-right w3-hide-small w3-display-right" style="margin-right:3em;letter-spacing:1px">
-          <a href="#download" class="w3-bar-item w3-button">Download</a>
-          <a href="/hidepok/maps" class="w3-bar-item w3-button">Maps</a>
-          <a href="/hidepok/blog" class="w3-bar-item w3-button">Blog</a>
+          <a href="/#download" class="w3-bar-item w3-button">Download</a>
+          <a href="/maps" class="w3-bar-item w3-button">Maps</a>
+          <a href="/blog" class="w3-bar-item w3-button">Blog</a>
           <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
-          <a href="/hidepok/event" class="w3-bar-item w3-button">Event</a>
-          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="/event" class="w3-bar-item w3-button">Event</a>
+          <a href="/#about" class="w3-bar-item w3-button">About</a>
         </div>
       </div>
       <!-- Navbar on small screens -->
       <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-        <a href="#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
-        <a href="/hidepok/maps" class="w3-bar-item w3-button">Maps</a>
-        <a href="/hidepok/blog." class="w3-bar-item w3-button">Blog</a>
+        <a href="/#download" class="w3-bar-item w3-button" onclick="toggleFunction()">Download</a>
+        <a href="/maps" class="w3-bar-item w3-button">Maps</a>
+        <a href="/blog." class="w3-bar-item w3-button">Blog</a>
         <!-- <a href="/opendata" class="w3-bar-item w3-button">OpenData</a> -->
-        <a href="/hidepok/event" class="w3-bar-item w3-button">Event</a>
-        <a href="#about" class="w3-bar-item w3-button">About</a>
+        <a href="/event" class="w3-bar-item w3-button">Event</a>
+        <a href="/#about" class="w3-bar-item w3-button">About</a>
       </div>
     </div>
 

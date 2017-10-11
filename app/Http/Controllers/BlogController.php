@@ -17,12 +17,12 @@ class BlogController extends Controller
                             ->latest()
                             ->limit(3)
                             ->get();
-    return view('/hidepok/blog', ['blogs' => $blogs, 'artikels' => $artikels]);
+    return view('/blog', ['blogs' => $blogs, 'artikels' => $artikels]);
     }
 
     public function show2($id_blog){
     $blog = Blog::where('id_blog', $id_blog)->first();
 
-    return view('/hidepok/blog/viewblog', ['blog' => $blog]);
+    return view('/blog/viewblog', ['blog' => $blog]);
     }
 }
